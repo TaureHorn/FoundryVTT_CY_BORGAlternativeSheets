@@ -1,0 +1,56 @@
+<form class="{{cssClass}}" autocomplete="off">
+<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>          
+<input class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+<button type="button" class="sheet-button big-button reaction-button">{{ localize "CY.Reaction" }}</button>
+<button type="button" class="sheet-button big-button morale-button">{{ localize "CY.Morale" }}</button>
+{{> systems/cy-borg/templates/actor/hit-points.html}}
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">{{localize 'CY.Description'}}</a>
+    <a class="item" data-tab="data">{{localize 'CY.Data'}}</a>
+  </nav>
+  
+  <div class="sheet-body">  
+    <div class="tab description-tab" data-group="primary" data-tab="description">
+      <div class="description-wrapper">
+        {{editor data.system.description target="system.description"
+        button=true owner=owner editable=true engine="prosemirror"}}  
+      </div>
+    </div>      
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="widget field-row">
+        <div class="field-label">
+          {{ localize 'CY.Morale'}}
+        </div>
+        <div class="field-value">
+          <input class="field-input" type="number" name="system.morale" value="{{ data.system.morale }}" />
+        </div>
+      </div>
+      <div class="widget field-row">
+        <div class="field-label">
+          {{ localize 'CY.Armor'}}
+        </div>
+        <div class="field-value">
+          <textarea class="field-input" name="system.armor" rows="2">{{data.system.armor}}</textarea>
+        </div>
+      </div>
+      <div class="widget field-row">
+        <div class="field-label">
+          {{ localize 'CY.Attack'}}
+        </div>
+        <div class="field-value">
+          <textarea class="field-input" name="system.attack" rows="3">{{data.system.attack}}</textarea>
+        </div>
+      </div>
+      <div class="widget field-row">
+        <div class="field-label">
+          {{ localize 'CY.Special'}}
+        </div>
+        <div class="field-value">
+          <textarea class="field-input" name="system.special" rows="10">{{data.system.special}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>  
+</form>
+

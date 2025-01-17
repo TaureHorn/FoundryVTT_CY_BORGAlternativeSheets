@@ -1,0 +1,26 @@
+{
+    "id": "cy-borg-compact-sheets",
+    "title": "CY_BORG Compact Sheets",
+    "version": "0.1",
+    "compatibility": {
+        "minimum": "12",
+        "verified": "12.331"
+    },
+    "authors": [
+        {
+            "name": "TaureHorn",
+            "url": "https://github.com/TaureHorn",
+            "flags": {}
+        }
+    ],
+    "description": "Optional sheets for the CY_BORG system for a more compact design",
+    "esmodules": [
+        "cy-borg-compact-sheets.js"
+    ],
+    "styles": "cy-borg-compact-sheets.css",
+    "url": "",
+    "download": "",
+    "manifest": ""
+}
+
+
