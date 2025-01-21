@@ -1,6 +1,6 @@
 {
-    "id": "cy-borg-compact-sheets",
-    "title": "CY_BORG Compact Sheets",
+    "id": "cy-borg-alternative-sheets",
+    "title": "CY_BORG Alternative Sheets",
     "version": "0.1",
     "compatibility": {
         "minimum": "12",
@@ -13,11 +13,11 @@
             "flags": {}
         }
     ],
-    "description": "Optional sheets for the CY_BORG system for a more compact design",
+    "description": "Optional sheets for the CY_BORG system for a more stylised design",
     "esmodules": [
-        "cy-borg-compact-sheets.js"
+        "cy-borg-alternative-sheets.js"
     ],
-    "styles": "cy-borg-compact-sheets.css",
+    "styles": "cy-borg-alternative-sheets.css",
     "url": "",
     "download": "",
     "manifest": ""
