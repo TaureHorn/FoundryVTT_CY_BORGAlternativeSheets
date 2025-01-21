@@ -19,7 +19,18 @@ Hooks.once('ready', async () => {
     class CompactCYNpcSheet extends cyborgSheets.CYNpcSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-compact-sheets/templates/npc-sheet.html"
+                classes: ['CYCompactSheet'],
+                height: 400,
+                resizable: false,
+                tabs: [
+                    {
+                        navSelector: ".compactSheetTabs",
+                        contentSelector: ".compactSheetBody",
+                        initial: "data",
+                    },
+                ],
+                template: "modules/cy-borg-compact-sheets/templates/npc-sheet.html",
+                width: 600
             })
         }
     }

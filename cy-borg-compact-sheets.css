@@ -1,0 +1,154 @@
+:root {
+    --bg: #333333;
+    --hi: #dddddd;
+    --blue: rgb(49, 76, 118);
+    --blueTrans: rgba(49, 76, 118, 0.5);
+}
+
+/* SHEET GENERAL */
+.CYCompactSheet {
+    background-image: url('/modules/cy-borg-compact-sheets/id_card.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 1em;
+}
+
+.CYCompactSheet>header {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 1em 1em 0 0;
+    color: var(--hi);
+}
+
+.CYCompactSheet>.window-content {
+    background: none !important;
+}
+
+.CYCompactSheet>.window-content legend,
+.CYCompactSheet>.window-content input[type="text"],
+.CYCompactSheet>.window-content textarea {
+    color: var(--blue)
+}
+
+.CYCompactSheet fieldset {
+    padding: 5px;
+    margin: 0 0 5px 0;
+}
+
+.CYCompactSheet .tabs>[data-tab].active {
+    background-color: var(--blueTrans);
+}
+
+/* SHEET ELEMENTS */
+
+.compactButton {
+    background-color: var(--blue);
+    border: none;
+    color: var(--hi);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.compactButton:hover {
+    background-color: var(--hi);
+    color: var(--bg);
+}
+
+.compactColumns {
+    display: flex;
+    gap: 10px
+}
+
+.compactColumns>.compactPortrait {
+    flex: 1;
+    height: auto;
+    width: 100%;
+}
+
+.compactPortrait img {
+    border: none;
+    cursor: pointer;
+    height: 230px;
+    object-fit: cover;
+    width: 230px;
+}
+
+.compactPortrait nav {
+    width: 100%;
+}
+
+.compactPortrait legend {
+    line-height: 0.5;
+}
+
+.compactColumns>.compactInfo {
+    flex: 1.5;
+}
+
+.compactFlex {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.compactSheetBody {
+    height: 75%;
+}
+
+/* INFO */
+.compactInfo #charName {
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: bold;
+    height: auto;
+}
+
+.compactInfo input[type="text"] {
+    background-color: none;
+    border: 1px solid var(--blue);
+}
+
+.compactInfo input[type="number"] {
+    background-color: var(--blue);
+    border: none;
+    color: var(--hi);
+    font-weight: bold;
+    text-align: center;
+    width: 4em;
+}
+
+.compactInfo #numberStats {
+    margin-bottom: 10px;
+}
+
+.compactInfo .compactStats {
+    display: flex;
+    gap: 5px;
+}
+
+.compactInfo textarea {
+    background: none;
+    border: none;
+    padding: 0;
+    resize: none;
+}
+
+.compactLabel {
+    color: var(--blue);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* EDITOR */
+.compactEditor {
+    height: 100%;
+}
+
+.compactEditor p,
+.compactEditor span,
+.compactEditor textarea {
+    color: var(--blue);
+}
+
