@@ -1,76 +1,76 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="compactColumns">
+    <div class="altColumns">
 
-        <div class="compactPortrait">
+        <div class="altPortrait">
 
             <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>          
 
             <div>
-                <fieldset class="compactFlex">
-                    <legend class="compactLabel">ACTIONS</legend>
-                    <button type="button" class="compactButton reaction-button">{{ localize "CY.Reaction" }}</button>
-                    <button type="button" class="compactButton morale-button">{{ localize "CY.Morale" }}</button>
+                <fieldset class="altFlex">
+                    <legend class="altLabel">ACTIONS</legend>
+                    <button type="button" class="altButton reaction-button">{{ localize "CY.Reaction" }}</button>
+                    <button type="button" class="altButton morale-button">{{ localize "CY.Morale" }}</button>
                 </fieldset>
 
-                <fieldset class="compactFlex">
-                    <legend class="compactLabel">VIEW</legend>
-                    <nav class="compactSheetTabs tabs compactFlex" data-group="primary">
-                        <button type="button" class="compactButton" data-tab="data">{{ localize "CY.Data" }}</button>
-                        <button type="button" class="compactButton" data-tab="description">{{ localize "CY.Description" }}</button>
+                <fieldset class="altFlex">
+                    <legend class="altLabel">VIEW</legend>
+                    <nav class="altSheetTabs tabs altFlex" data-group="primary">
+                        <button type="button" class="altButton" data-tab="data">{{ localize "CY.Data" }}</button>
+                        <button type="button" class="altButton" data-tab="description">{{ localize "CY.Description" }}</button>
                     </nav>
                 </fieldset>
             </div>
 
         </div>
 
-        <div class="compactInfo">
+        <div class="altInfo">
 
             <input id="charName" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
 
-            <div class="compactSheetBody">
+            <div class="altSheetBody">
                 
                 <div class="tab data-tab" data-group="primary" data-tab="data">
                     
                     <fieldset>
-                        <legend class="compactLabel">STATS</legend>
-                        <div id="numberStats" class="compactFlex">
+                        <legend class="altLabel">STATS</legend>
+                        <div id="numberStats" class="altFlex">
 
-                            <div id="HP" class="compactStats">
-                                <p class="compactLabel">{{localize "CY.HitPoints"}}:</p>
+                            <div id="HP" class="altStats">
+                                <p class="altLabel">{{localize "CY.HitPoints"}}:</p>
                                 <input type="number" name="system.hitPoints.value" value="{{data.system.hitPoints.value}}" />
-                                <p class="compactLabel">/</p>
+                                <p class="altLabel">/</p>
                                 <input type="number" name="system.hitPoints.max" value="{{data.system.hitPoints.max}}" />
                             </div>
 
-                            <div id="morale" class="compactStats">
-                                <p class="compactLabel">{{localize "CY.Morale"}}:</p>
+                            <div id="morale" class="altStats">
+                                <p class="altLabel">{{localize "CY.Morale"}}:</p>
                                 <input type="number" name="system.morale" value="{{data.system.morale}}" />
                             </div>
 
                         </div>
 
-                        <div id="armour" class="compactStats">
-                            <p class="compactLabel">{{localize "CY.Armor"}}:</p>
+                        <div id="armour" class="altStats">
+                            <p class="altLabel">{{localize "CY.Armor"}}:</p>
                             <input type="text" name="system.armor" value="{{data.system.armor}}" />
                         </div>
 
                     </fieldset>
 
                     <fieldset>
-                        <legend class="compactLabel">{{localize "CY.Attack"}}</legend>
+                        <legend class="altLabel">{{localize "CY.Attack"}}</legend>
                         <textarea name="system.attack" rows="3">{{data.system.attack}}</textarea>
                     </fieldset>
 
                     <fieldset>
-                        <legend class="compactLabel">{{localize "CY.Special"}}</legend>
+                        <legend class="altLabel">{{localize "CY.Special"}}</legend>
                         <textarea name="system.special" rows="4">{{data.system.special}}</textarea>
                     </fieldset>
 
                 </div>
 
-                <fieldset class="tab description-tab compactEditor" data-group="primary" data-tab="description">
-                    <legend class="compactLabel">DESCRIPTION</legend>
+                <fieldset class="tab description-tab altEditor" data-group="primary" data-tab="description">
+                    <legend class="altLabel">DESCRIPTION</legend>
                     {{editor data.system.description target="system.description"
                     button=true owner=owner editable=true engine="prosemirror"}}  
                 </fieldset>

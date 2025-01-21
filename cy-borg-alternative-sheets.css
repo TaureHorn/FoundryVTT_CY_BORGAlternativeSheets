@@ -6,43 +6,43 @@
 }
 
 /* SHEET GENERAL */
-.CYCompactSheet {
-    background-image: url('/modules/cy-borg-compact-sheets/id_card.jpg');
+.CYAltSheet {
+    background-image: url('/modules/cy-borg-alternative-sheets/id_card.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
     border-radius: 1em;
 }
 
-.CYCompactSheet>header {
+.CYAltSheet>header {
     background-color: var(--blue);
     border: 1px solid var(--blue);
     border-radius: 1em 1em 0 0;
     color: var(--hi);
 }
 
-.CYCompactSheet>.window-content {
+.CYAltSheet>.window-content {
     background: none !important;
 }
 
-.CYCompactSheet>.window-content legend,
-.CYCompactSheet>.window-content input[type="text"],
-.CYCompactSheet>.window-content textarea {
+.CYAltSheet>.window-content legend,
+.CYAltSheet>.window-content input[type="text"],
+.CYAltSheet>.window-content textarea {
     color: var(--blue)
 }
 
-.CYCompactSheet fieldset {
+.CYAltSheet fieldset {
     padding: 5px;
     margin: 0 0 5px 0;
 }
 
-.CYCompactSheet .tabs>[data-tab].active {
+.CYAltSheet .tabs>[data-tab].active {
     background-color: var(--blueTrans);
 }
 
 /* SHEET ELEMENTS */
 
-.compactButton {
+.altButton {
     background-color: var(--blue);
     border: none;
     color: var(--hi);
@@ -50,67 +50,68 @@
     text-transform: uppercase;
 }
 
-.compactButton:hover {
+.altButton:hover {
     background-color: var(--hi);
     color: var(--bg);
 }
 
-.compactColumns {
+.altColumns {
     display: flex;
     gap: 10px
 }
 
-.compactColumns>.compactPortrait {
+.altColumns>.altPortrait {
     flex: 1;
     height: auto;
     width: 100%;
 }
 
-.compactPortrait img {
-    border: none;
+.altPortrait img {
+    border: 1px solid var(--blue);
     cursor: pointer;
     height: 230px;
     object-fit: cover;
     width: 230px;
 }
 
-.compactPortrait nav {
+.altPortrait nav {
     width: 100%;
 }
 
-.compactPortrait legend {
+.altPortrait legend {
     line-height: 0.5;
 }
 
-.compactColumns>.compactInfo {
-    flex: 1.5;
-}
-
-.compactFlex {
+.altFlex {
     align-items: center;
     display: flex;
     gap: 5px;
     justify-content: space-between;
 }
 
-.compactSheetBody {
+.altSheetBody {
     height: 75%;
 }
 
 /* INFO */
-.compactInfo #charName {
+.altColumns>.altInfo {
+    flex: 1.5;
+    max-height: 350px;
+}
+
+.altInfo #charName {
     font-family: monospace;
     font-size: 2em;
     font-weight: bold;
     height: auto;
 }
 
-.compactInfo input[type="text"] {
+.altInfo input[type="text"] {
     background-color: none;
     border: 1px solid var(--blue);
 }
 
-.compactInfo input[type="number"] {
+.altInfo input[type="number"] {
     background-color: var(--blue);
     border: none;
     color: var(--hi);
@@ -119,36 +120,36 @@
     width: 4em;
 }
 
-.compactInfo #numberStats {
+.altInfo #numberStats {
     margin-bottom: 10px;
 }
 
-.compactInfo .compactStats {
+.altInfo .altStats {
     display: flex;
     gap: 5px;
 }
 
-.compactInfo textarea {
+.altInfo textarea {
     background: none;
     border: none;
     padding: 0;
     resize: none;
 }
 
-.compactLabel {
+.altLabel {
     color: var(--blue);
     font-weight: bold;
     text-transform: uppercase;
 }
 
 /* EDITOR */
-.compactEditor {
+.altEditor {
     height: 100%;
 }
 
-.compactEditor p,
-.compactEditor span,
-.compactEditor textarea {
+.altEditor p,
+.altEditor span,
+.altEditor textarea {
     color: var(--blue);
 }
 

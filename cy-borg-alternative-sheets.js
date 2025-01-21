@@ -1,4 +1,4 @@
-console.log('cy-borg-compact-sheets >>> init')
+console.log('cy-borg-alternative-sheets >>> init')
 
 const cyborgSheets = {}
 
@@ -14,72 +14,71 @@ function getCyborgSheets() {
 
 Hooks.once('ready', async () => {
     getCyborgSheets()
-    console.log('Hooks.once ready', cyborgSheets)
 
-    class CompactCYNpcSheet extends cyborgSheets.CYNpcSheet {
+    class AltCYNpcSheet extends cyborgSheets.CYNpcSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                classes: ['CYCompactSheet'],
+                classes: ['CYAltSheet'],
                 height: 400,
                 resizable: false,
                 tabs: [
                     {
-                        navSelector: ".compactSheetTabs",
-                        contentSelector: ".compactSheetBody",
+                        navSelector: ".altSheetTabs",
+                        contentSelector: ".altSheetBody",
                         initial: "data",
                     },
                 ],
-                template: "modules/cy-borg-compact-sheets/templates/npc-sheet.html",
+                template: "modules/cy-borg-alternative-sheets/templates/npc-sheet.html",
                 width: 600
             })
         }
     }
 
-    class CompactCYCharacterSheet extends cyborgSheets.CYCharacterSheet {
+    class AltCYCharacterSheet extends cyborgSheets.CYCharacterSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-compact-sheets/templates/character-sheet.html"
+                template: "modules/cy-borg-alternative-sheets/templates/character-sheet.html"
             })
         }
     }
 
-    class CompactCYVehicleSheet extends cyborgSheets.CYVehicleSheet {
+    class AltCYVehicleSheet extends cyborgSheets.CYVehicleSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-compact-sheets/templates/vehicle-sheet.html"
+                template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html"
             })
         }
     }
 
-    class CompactCYItemSheet extends cyborgSheets.CYItemSheet {
+    class AltCYItemSheet extends cyborgSheets.CYItemSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-compact-sheets/templates/item-sheet.html"
+                template: "modules/cy-borg-alternative-sheets/templates/item-sheet.html"
             })
         }
     }
 
-    Actors.registerSheet('cy-borg', CompactCYNpcSheet, {
+    Actors.registerSheet('cy-borg', AltCYNpcSheet, {
         types: ['npc'],
         makeDefault: false,
-        label: 'Compact CY_BORG NPC Sheet'
+        label: 'Alt CY_BORG NPC Sheet'
     })
 
-    Actors.registerSheet('cy-borg', CompactCYCharacterSheet, {
+    Actors.registerSheet('cy-borg', AltCYCharacterSheet, {
         types: ['character'],
         makeDefault: false,
-        label: 'Compact CY_BORG Character Sheet'
+        label: 'Alt CY_BORG Character Sheet'
     })
 
-    Actors.registerSheet('cy-borg', CompactCYVehicleSheet, {
+    Actors.registerSheet('cy-borg', AltCYVehicleSheet, {
         types: ['vehicle'],
         makeDefault: false,
-        label: 'Compact CY_BORG Vehicle Sheet'
+        label: 'Alt CY_BORG Vehicle Sheet'
     })
 
-    Items.registerSheet('cy-borg', CompactCYItemSheet, {
+    Items.registerSheet('cy-borg', AltCYItemSheet, {
         makeDefault: false,
-        label: 'Compact CY_BORG NPC Sheet'
+        label: 'Alt CY_BORG NPC Sheet'
     })
 })
 
