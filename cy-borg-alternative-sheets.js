@@ -32,6 +32,28 @@ Hooks.once('ready', async () => {
                 width: 600
             })
         }
+
+        _handleRightClick = async (event) => {
+            if (! $(event.currentTarget).data()) return
+            // get data from html
+            const image = $(event.currentTarget).data().zoom
+            const actor = game.actors.get($(event.currentTarget).data().id)
+
+            // render image popout based on acquired data
+            const zoom = new ImagePopout(image, {
+                title: actor.name,
+                uuid: actor.uuid
+            })
+            zoom.render(true)
+        }
+
+        activateListeners(html) {
+            super.activateListeners(html)
+            
+            // right click on character portrait
+            html.on('contextmenu', '[data-zoom]', this._handleRightClick)
+        }
+
     }
 
     class AltCYCharacterSheet extends cyborgSheets.CYCharacterSheet {
