@@ -1,0 +1,51 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="altRowFlex">
+        <div class="altColumns">
+
+            <div class="altPortrait">
+                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altFlex">
+                    <p id="itemType">APP</p>
+                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                </div>
+            </div>
+
+            <div class="altData">
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Price'}}: </p>
+                    <input type="number" name="system.price" value="{{data.system.price}}" />
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Illegal'}}: </p>
+                    <input type="checkbox" name="system.illegal" {{checked data.system.price}} />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.CarrySlots'}}: </p>
+                    <input type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Quantity'}}: </p>
+                    <input type="number" name="system.quantity" value="{{data.system.quantity}}" />
+                </div>
+
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Burned'}}: </p>
+                    <input type="checkbox" name="system.burned" {{checked data.system.price}} />
+                </div>
+
+            </div>
+        </div>
+
+        <fieldset class="altEditor">
+            <legend class="altLabel">DESCRIPTION</legend>
+            {{editor data.system.description target="system.description"
+            button=true owner=owner editable=true engine="prosemirror"}}  
+        </fieldset>
+
+    </div>
+</form>

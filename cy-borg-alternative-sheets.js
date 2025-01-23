@@ -18,7 +18,7 @@ Hooks.once('ready', async () => {
     class AltCYNpcSheet extends cyborgSheets.CYNpcSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                classes: ['CYAltSheet'],
+                classes: ['CYAltSheet', 'CYAltNpcSheet'],
                 height: 400,
                 resizable: false,
                 tabs: [
@@ -34,7 +34,7 @@ Hooks.once('ready', async () => {
         }
 
         _handleRightClick = async (event) => {
-            if (! $(event.currentTarget).data()) return
+            if (!$(event.currentTarget).data()) return
             // get data from html
             const image = $(event.currentTarget).data().zoom
             const actor = game.actors.get($(event.currentTarget).data().id)
@@ -49,7 +49,7 @@ Hooks.once('ready', async () => {
 
         activateListeners(html) {
             super.activateListeners(html)
-            
+
             // right click on character portrait
             html.on('contextmenu', '[data-zoom]', this._handleRightClick)
         }
@@ -73,11 +73,50 @@ Hooks.once('ready', async () => {
     }
 
     class AltCYItemSheet extends cyborgSheets.CYItemSheet {
+
         static get defaultOptions() {
-            return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-alternative-sheets/templates/item-sheet.html"
+            const parentOpts = super.defaultOptions
+            return foundry.utils.mergeObject(parentOpts, {
+                classes: ['CYAltSheet CYAltItemSheet'],
+                height: 400,
+                resizable: false,
+                width: 400
             })
         }
+
+        get template() {
+            return `modules/cy-borg-alternative-sheets/templates/items/${this.item.type}-sheet.html`
+        }
+
+        setOpts() {
+            // add item type to class list
+            const itemClass = `CYAltItem-${this.item.type}`
+            if (!this.options.classes.includes(itemClass)) {
+                this.options.classes.push(itemClass)
+            }
+
+            // set window size for certain item types
+            switch (this.item.type) {
+                case 'class':
+                    this.position.height = 710
+                    this.position.width = 710
+                    break;
+                case 'weapon':
+                    this.position.height = 475
+                    this.position.width = 475
+                    break;
+                default:
+                    this.position.height = this.options.height
+                    this.position.width = this.options.width
+            }
+
+        }
+
+        render(...args) {
+            this.setOpts()
+            return super.render(...args)
+        }
+
     }
 
     Actors.registerSheet('cy-borg', AltCYNpcSheet, {
@@ -100,7 +139,7 @@ Hooks.once('ready', async () => {
 
     Items.registerSheet('cy-borg', AltCYItemSheet, {
         makeDefault: false,
-        label: 'Alt CY_BORG NPC Sheet'
+        label: 'Alt CY_BORG Item Sheet'
     })
 })
 

@@ -1,0 +1,21 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="altRowFlex">
+
+            <div class="altPortrait">
+                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}" style="height:192px;width:192px"/>          
+                <div class="altFlex">
+                    <p>NANO</p>
+                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                </div>
+            </div>
+
+        <fieldset class="altEditor">
+            <legend class="altLabel">DESCRIPTION</legend>
+            {{editor data.system.description target="system.description"
+            button=true owner=owner editable=true engine="prosemirror"}}  
+        </fieldset>
+
+    </div>
+</form>
+

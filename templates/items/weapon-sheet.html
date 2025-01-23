@@ -1,0 +1,104 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="altRowFlex">
+        <div class="altColumns">
+
+            <div class="altPortrait">
+
+                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altFlex">
+                    <p>WEAPON</p>
+                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                </div>
+
+                <fieldset class="altEditor">
+                    <legend class="altLabel">DESCRIPTION</legend>
+                    {{editor data.system.description target="system.description"
+                    button=true owner=owner editable=true engine="prosemirror"}}  
+                </fieldset>
+
+            </div>
+
+            <div class="altData">
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.WeaponType'}}: </p>
+                    <input type="text" name="system.weaponType" value="{{data.system.weaponType}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Autofire'}}: </p>
+                    <input type="checkbox" name="system.autofire" {{checked data.system.autofire}} />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Damage'}}: </p>
+                    <input type="text" name="system.damage" value="{{data.system.damage}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.VehicleDamage'}}: </p>
+                    <input type="text" name="system.vehicleDamage" value="{{data.system.vehicleDamage}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Special'}}: </p>
+                    <input type="text" name="system.special" value="{{data.system.special}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.UsesAmmo'}}: </p>
+                    <input type="number" name="system.usesAmmo" value="{{data.system.usesAmmo}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Targets'}}: </p>
+                    <input type="number" name="system.targets" value="{{data.system.targets}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.FumbleOn'}}: </p>
+                    <input type="number" name="system.fumbleOn" value="{{data.system.fumbleOn}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.CritOn'}}: </p>
+                    <input type="number" name="system.critOn" value="{{data.system.critOn}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.CritMultiplier'}}: </p>
+                    <input type="number" name="system.critMultiplier" value="{{data.system.critMultiplier}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Price'}}: </p>
+                    <input type="number" name="system.price" value="{{data.system.price}}" />
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Illegal'}}: </p>
+                    <input type="checkbox" name="system.illegal" {{checked data.system.price}} />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Cybertech'}}: </p>
+                    <input type="checkbox" name="system.cybertech" {{checked data.system.cybertech}} />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.CarrySlots'}}: </p>
+                    <input type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.Quantity'}}: </p>
+                    <input type="number" name="system.quantity" value="{{data.system.quantity}}" />
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
