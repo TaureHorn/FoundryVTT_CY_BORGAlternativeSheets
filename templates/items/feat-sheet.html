@@ -1,0 +1,37 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="altRowFlex">
+        <div class="altColumns">
+
+            <div class="altPortrait">
+                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altFlex">
+                    <p>FEAT</p>
+                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                </div>
+            </div>
+
+            <div class="altData">
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.RollLabel'}}: </p>
+                    <input type="text" name="system.rollLabel" value="{{data.system.rollLabel}} " />
+                </div>
+
+                <div class="altFlex">
+                    <p class="altLabel">{{localize 'CY.RollMacro'}}: </p>
+                    <input type="text" name="system.rollMacro" value="{{data.system.rollMacro}} " />
+                </div>
+
+            </div>
+        </div>
+
+        <fieldset class="altEditor">
+            <legend class="altLabel">DESCRIPTION</legend>
+            {{editor data.system.description target="system.description"
+            button=true owner=owner editable=true engine="prosemirror"}}  
+        </fieldset>
+
+    </div>
+</form>
+

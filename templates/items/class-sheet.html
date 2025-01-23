@@ -1,0 +1,95 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="altRowFlex">
+        <div class="altColumns">
+
+            <div class="altPortrait">
+                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altFlex">
+                    <p class="altLabel">CLASS</p>
+                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                </div>
+
+                <fieldset class="altEditor">
+                    <legend class="altLabel">DESCRIPTION</legend>
+                    {{editor data.system.description target="system.description"
+                    button=true owner=owner editable=true engine="prosemirror"}}  
+                </fieldset>
+
+            </div>
+
+            <div class="altData">
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Credits'}}: </p>
+                    <input type="text" name="system.credits" value="{{data.system.credits}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Debt'}}: </p>
+                    <input type="text" name="system.debt" value="{{data.system.debt}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.HitPoints'}}: </p>
+                    <input type="text" name="system.hitPoints" value="{{data.system.hitPoints}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Glitches'}}: </p>
+                    <input type="text" name="system.glitches" value="{{data.system.glitches}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Strength'}}: </p>
+                    <input type="text" name="system.strength" value="{{data.system.strength}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Agility'}}: </p>
+                    <input type="text" name="system.agility" value="{{data.system.agility}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Presence'}}: </p>
+                    <input type="text" name="system.presence" value="{{data.system.presence}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Toughness'}}: </p>
+                    <input type="text" name="system.toughness" value="{{data.system.toughness}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Knowledge'}}: </p>
+                    <input type="text" name="system.knowledge" value="{{data.system.knowledge}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.WeaponTable'}}: </p>
+                    <input type="text" name="system.weaponTable" value="{{data.system.weaponTable}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.ArmorTable'}}: </p>
+                    <input type="text" name="system.armorTable" value="{{data.system.armorTable}}" spellcheck="false"/>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Rolls'}}: </p>
+                    <textarea name="system.rolls" rows="4">{{data.system.rolls}}</textarea>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.Items'}}: </p>
+                    <textarea name="system.items" rows="4">{{data.system.items}}</textarea>
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.OnlyApps'}}: </p>
+                    <input type="checkbox" name="system.onlyApps" {{checked data.system.onlyApps}} />
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.OnlyCybertech'}}: </p>
+                    <input type="checkbox" name="system.onlyCybertech" {{checked data.system.onlyCybertech}} />
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.OnlyNano'}}: </p>
+                    <input type="checkbox" name="system.onlyNano" {{checked data.system.onlyNano}} />
+                </div>
+                <div class="altFlex">
+                    <p class="altLabel">{{ localize 'CY.ActorCreateMacro'}}: </p>
+                    <textarea name="system.actorCreateMacro" rows="4">{{data.system.actorCreateMacro}}</textarea> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+

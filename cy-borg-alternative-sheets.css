@@ -7,22 +7,79 @@
 
 /* SHEET GENERAL */
 .CYAltSheet {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
+}
+
+.CYAltNpcSheet {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
     border-radius: 1em;
 }
 
-.CYAltSheet>header {
+.CYAltItem-app,
+.CYAltItem-cyberdeck {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/tech_background.jpg');
+}
+
+.CYAltItem-armor,
+.CYAltItem-equipment {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/equipment_background.jpg');
+}
+
+.CYAltItem-class,
+.CYAltItem-feat {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/misc_background.jpg');
+}
+
+.CYAltItem-infestation,
+.CYAltItem-nanoPower {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/nano_background.jpg');
+}
+
+.CYAltItem-weapon {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.jpg');
+}
+
+.CYAltItem-class .altEditor,
+.CYAltItem-weapon .altEditor {
+    margin-top: 1em;
+    max-height: 30%;
+}
+
+.CYAltNpcSheet>header {
     background-color: var(--blue);
     border: 1px solid var(--blue);
     border-radius: 1em 1em 0 0;
     color: var(--hi);
 }
 
+.CYAltNpcSheet .altPortrait>img {
+    height: 230px;
+    width: 230px;
+}
+
+.CYAltItemSheet .altPortrait>img {
+    width: 100%;
+}
+
+.CYAltItemSheet {
+    border: 2px solid var(--hi);
+    color: var(--hi);
+}
+
+.CYAltItemSheet>header {
+    border: none !important;
+}
+
+.CYAltItemSheet {
+    border-radius: 0.25em;
+}
+
 .CYAltSheet>.window-content {
     background: none !important;
+    flex-direction: row;
+    overflow: hidden;
 }
 
 .CYAltSheet>.window-content legend,
@@ -57,7 +114,9 @@
 
 .altColumns {
     display: flex;
-    gap: 10px
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .altColumns>.altPortrait {
@@ -69,9 +128,7 @@
 .altPortrait img {
     border: 1px solid var(--blue);
     cursor: pointer;
-    height: 230px;
     object-fit: cover;
-    width: 230px;
 }
 
 .altPortrait nav {
@@ -82,11 +139,17 @@
     line-height: 0.5;
 }
 
+.altRowFlex,
 .altFlex {
     align-items: center;
     display: flex;
     gap: 5px;
     justify-content: space-between;
+}
+
+.altRowFlex {
+    flex-direction: column;
+    height: 100%;
 }
 
 .altSheetBody {
@@ -99,11 +162,29 @@
     max-height: 350px;
 }
 
+.altColumns>.altData {
+    flex: 1;
+}
+
+.altPortrait #charName,
+.altPortrait #itemType,
 .altInfo #charName {
     font-family: monospace;
-    font-size: 2em;
     font-weight: bold;
     height: auto;
+}
+
+.altInfo #charName {
+    font-size: 2em;
+}
+
+.altPortrait #itemType {
+    background-color: var(--blue);
+    color: var(--hi);
+}
+
+.altData {
+    overflow: scroll;
 }
 
 .altInfo input[type="text"] {
@@ -111,7 +192,8 @@
     border: 1px solid var(--blue);
 }
 
-.altInfo input[type="number"] {
+.altInfo input[type="number"],
+.altData input[type="number"] {
     background-color: var(--blue);
     border: none;
     color: var(--hi);
@@ -144,7 +226,12 @@
 
 /* EDITOR */
 .altEditor {
-    height: 100%;
+    overflow: scroll;
+    width: 100%;
+}
+
+.altEditor .editor {
+    min-height: 60px;
 }
 
 .altEditor p,
@@ -152,4 +239,3 @@
 .altEditor textarea {
     color: var(--blue);
 }
-
