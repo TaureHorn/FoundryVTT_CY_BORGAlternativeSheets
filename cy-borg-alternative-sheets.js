@@ -98,12 +98,12 @@ Hooks.once('ready', async () => {
             // set window size for certain item types
             switch (this.item.type) {
                 case 'class':
-                    this.position.height = 710
-                    this.position.width = 710
+                    this.position.height = 765
+                    this.position.width = 765
                     break;
                 case 'weapon':
-                    this.position.height = 475
-                    this.position.width = 475
+                    this.position.height = 530
+                    this.position.width = 530
                     break;
                 default:
                     this.position.height = this.options.height
@@ -111,6 +111,7 @@ Hooks.once('ready', async () => {
             }
 
         }
+
 
         render(...args) {
             this.setOpts()
