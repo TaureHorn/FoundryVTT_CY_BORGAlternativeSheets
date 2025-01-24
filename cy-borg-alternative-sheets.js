@@ -15,6 +15,14 @@ function getCyborgSheets() {
 Hooks.once('ready', async () => {
     getCyborgSheets()
 
+    function zoomSheetPortrait(obj) {
+        const zoom = new ImagePopout(obj.img, {
+            title: obj.name,
+            uuid: obj.uuid
+        })
+        zoom.render(true)
+    }
+
     class AltCYNpcSheet extends cyborgSheets.CYNpcSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
@@ -33,25 +41,13 @@ Hooks.once('ready', async () => {
             })
         }
 
-        _handleRightClick = async (event) => {
-            if (!$(event.currentTarget).data()) return
-            // get data from html
-            const image = $(event.currentTarget).data().zoom
-            const actor = game.actors.get($(event.currentTarget).data().id)
-
-            // render image popout based on acquired data
-            const zoom = new ImagePopout(image, {
-                title: actor.name,
-                uuid: actor.uuid
-            })
-            zoom.render(true)
-        }
-
         activateListeners(html) {
             super.activateListeners(html)
 
             // right click on character portrait
-            html.on('contextmenu', '[data-zoom]', this._handleRightClick)
+            html.on('contextmenu', '[data-zoom]', () => {
+                zoomSheetPortrait(this.object)
+            })
         }
 
     }
@@ -62,6 +58,16 @@ Hooks.once('ready', async () => {
                 template: "modules/cy-borg-alternative-sheets/templates/character-sheet.html"
             })
         }
+
+        activateListeners(html) {
+            super.activateListeners(html)
+
+            //right click on portrait to zoom
+            html.on('contextmenu', '[data-zoom]', () => {
+                zoomSheetPortrait(this.object)
+            })
+        }
+
     }
 
     class AltCYVehicleSheet extends cyborgSheets.CYVehicleSheet {
@@ -70,6 +76,16 @@ Hooks.once('ready', async () => {
                 template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html"
             })
         }
+
+        activateListeners(html) {
+            super.activateListeners(html)
+
+            //right click on portrait to zoom
+            html.on('contextmenu', '[data-zoom]', () => {
+                zoomSheetPortrait(this.object)
+            })
+        }
+
     }
 
     class AltCYItemSheet extends cyborgSheets.CYItemSheet {
@@ -110,6 +126,15 @@ Hooks.once('ready', async () => {
                     this.position.width = this.options.width
             }
 
+        }
+
+        activateListeners(html) {
+            super.activateListeners(html)
+
+            // right click on character portrait
+            html.on('contextmenu', '[data-zoom]', () => {
+                zoomSheetPortrait(this.object)
+            })
         }
 
 
