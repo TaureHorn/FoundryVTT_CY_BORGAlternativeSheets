@@ -33,7 +33,8 @@ Hooks.once('ready', async () => {
                     {
                         navSelector: ".altSheetTabs",
                         contentSelector: ".altSheetBody",
-                        initial: "data",
+                        initial: "description", // TODO: remove before push (testing only)
+                        // initial: "data",
                     },
                 ],
                 template: "modules/cy-borg-alternative-sheets/templates/npc-sheet.html",
@@ -118,8 +119,8 @@ Hooks.once('ready', async () => {
                     this.position.width = 765
                     break;
                 case 'weapon':
-                    this.position.height = 530
-                    this.position.width = 530
+                    this.position.height = 540
+                    this.position.width = 540
                     break;
                 default:
                     this.position.height = this.options.height

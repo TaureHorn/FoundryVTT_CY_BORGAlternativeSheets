@@ -6,13 +6,13 @@
             <div class="altPortrait">
 
                 <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
-                <div class="altFlex">
-                    <p>WEAPON</p>
-                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                <div class="altFlex altItemName">
+                    <span id="itemType">WEAPON</span>
+                    <input class="altBg" id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
 
-                <fieldset class="altEditor">
-                    <legend class="altLabel">DESCRIPTION</legend>
+                <fieldset class="altEditor altBg">
+                    <legend class="altLabel altBgInv">DESCRIPTION</legend>
                     {{editor data.system.description target="system.description"
                     button=true owner=owner editable=true engine="prosemirror"}}  
                 </fieldset>
@@ -22,82 +22,82 @@
             <div class="altData">
 
                 <fieldset>
-                    <legend class="altLabel">STATS</legend>
+                    <legend class="altLabel altBgInv">STATS</legend>
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.WeaponType'}}: </p>
-                        <input type="text" name="system.weaponType" value="{{data.system.weaponType}}" />
+                        <span class="altLabel">{{localize 'CY.WeaponType'}}: </span>
+                        <input class="altBg" type="text" name="system.weaponType" value="{{data.system.weaponType}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Autofire'}}: </p>
-                        <input type="checkbox" name="system.autofire" {{checked data.system.autofire}} />
+                        <span class="altLabel">{{localize 'CY.Autofire'}}: </span>
+                        <input class="altBg" type="checkbox" name="system.autofire" {{checked data.system.autofire}} />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Damage'}}: </p>
-                        <input type="text" name="system.damage" value="{{data.system.damage}}" />
+                        <span class="altLabel">{{localize 'CY.Damage'}}: </span>
+                        <input class="altBg" type="text" name="system.damage" value="{{data.system.damage}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.VehicleDamage'}}: </p>
-                        <input type="text" name="system.vehicleDamage" value="{{data.system.vehicleDamage}}" />
+                        <span class="altLabel">{{localize 'CY.VehicleDamage'}}: </span>
+                        <input class="altBg" type="text" name="system.vehicleDamage" value="{{data.system.vehicleDamage}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Special'}}: </p>
-                        <input type="text" name="system.special" value="{{data.system.special}}" />
+                        <span class="altLabel">{{localize 'CY.Special'}}: </span>
+                        <input class="altBg" type="text" name="system.special" value="{{data.system.special}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.UsesAmmo'}}: </p>
-                        <input type="number" name="system.usesAmmo" value="{{data.system.usesAmmo}}" />
+                        <span class="altLabel">{{localize 'CY.UsesAmmo'}}: </span>
+                        <input class="altBg" type="number" name="system.usesAmmo" value="{{data.system.usesAmmo}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Targets'}}: </p>
-                        <input type="number" name="system.targets" value="{{data.system.targets}}" />
+                        <span class="altLabel">{{localize 'CY.Targets'}}: </span>
+                        <input class="altBg" type="number" name="system.targets" value="{{data.system.targets}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.FumbleOn'}}: </p>
-                        <input type="number" name="system.fumbleOn" value="{{data.system.fumbleOn}}" />
+                        <span class="altLabel">{{localize 'CY.FumbleOn'}}: </span>
+                        <input class="altBg" type="number" name="system.fumbleOn" value="{{data.system.fumbleOn}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.CritOn'}}: </p>
-                        <input type="number" name="system.critOn" value="{{data.system.critOn}}" />
+                        <span class="altLabel">{{localize 'CY.CritOn'}}: </span>
+                        <input class="altBg" type="number" name="system.critOn" value="{{data.system.critOn}}" />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.CritMultiplier'}}: </p>
-                        <input type="number" name="system.critMultiplier" value="{{data.system.critMultiplier}}" />
+                        <span class="altLabel">{{localize 'CY.CritMultiplier'}}: </span>
+                        <input class="altBg" type="number" name="system.critMultiplier" value="{{data.system.critMultiplier}}" />
                     </div>
                 </fieldset>
 
                 <fieldset>
-                    <legend class="altLabel">MISC</legend>
+                    <legend class="altLabel altBgInv">MISC</legend>
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Price'}}: </p>
-                        <input type="number" name="system.price" value="{{data.system.price}}" />
+                        <span class="altLabel">{{localize 'CY.Price'}}: </span>
+                        <input class="altBg" type="number" name="system.price" value="{{data.system.price}}" />
                     </div>
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Illegal'}}: </p>
-                        <input type="checkbox" name="system.illegal" {{checked data.system.price}} />
-                    </div>
-
-                    <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Cybertech'}}: </p>
-                        <input type="checkbox" name="system.cybertech" {{checked data.system.cybertech}} />
+                        <span class="altLabel">{{localize 'CY.Illegal'}}: </span>
+                        <input class="altBg" type="checkbox" name="system.illegal" {{checked data.system.price}} />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.CarrySlots'}}: </p>
-                        <input type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
+                        <span class="altLabel">{{localize 'CY.Cybertech'}}: </span>
+                        <input class="altBg" type="checkbox" name="system.cybertech" {{checked data.system.cybertech}} />
                     </div>
 
                     <div class="altFlex">
-                        <p class="altLabel">{{localize 'CY.Quantity'}}: </p>
-                        <input type="number" name="system.quantity" value="{{data.system.quantity}}" />
+                        <span class="altLabel">{{localize 'CY.CarrySlots'}}: </span>
+                        <input class="altBg" type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
+                    </div>
+
+                    <div class="altFlex">
+                        <span class="altLabel">{{localize 'CY.Quantity'}}: </span>
+                        <input class="altBg" type="number" name="system.quantity" value="{{data.system.quantity}}" />
                     </div>
 
             </div>
