@@ -120,8 +120,7 @@
     font-weight: bold;
 }
 
-.CYAltItem-class,
-.altPortrait,
+.CYAltItem-class .altPortrait,
 .CYAltItem-weapon .altPortrait {
     display: flex;
     flex-direction: column;
