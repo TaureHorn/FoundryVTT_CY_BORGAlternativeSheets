@@ -1,16 +1,30 @@
 :root {
-    --bg: #333333;
-    --hi: #dddddd;
-    --blue: rgb(49, 76, 118);
-    --blueTrans: rgba(49, 76, 118, 0.5);
+    --altNpcBg: rgb(51, 51, 51);
+    --altNpcBgTrans: rgba(0, 0, 0, 0.1);
+    --altNpcHi: #dddddd;
+    --altNpcBlue: rgb(49, 76, 118);
+    --altNpcBlueTrans: rgba(49, 76, 118, 0.5);
 }
 
-/* SHEET GENERAL */
+
+/*=================================================================
+                        SHEET GENERAL 
+=================================================================*/
+
+
 .CYAltSheet {
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
 }
+
+.CYAltSheet>.window-content {
+    background: none !important;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+/*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
     background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
@@ -41,17 +55,25 @@
     background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.jpg');
 }
 
-.CYAltItem-class .altEditor,
-.CYAltItem-weapon .altEditor {
-    margin-top: 1em;
-    max-height: 30%;
+/*==================================================== NPC SHEET */
+.CYAltNpcSheet>header {
+    border-radius: 1em 1em 0 0;
 }
 
-.CYAltNpcSheet>header {
-    background-color: var(--blue);
-    border: 1px solid var(--blue);
-    border-radius: 1em 1em 0 0;
-    color: var(--hi);
+.CYAltNpcSheet fieldset {
+    border: none;
+    margin: 5px 0;
+    padding: 0px;
+}
+
+.CYAltNpcSheet .altEditor,
+.CYAltNpcSheet .altEditor .editor {
+    height: 100%
+}
+
+.CYAltNpcSheet legend {
+    font-weight: 900;
+    padding: 0;
 }
 
 .CYAltNpcSheet .altPortrait>img {
@@ -59,57 +81,41 @@
     width: 230px;
 }
 
-.CYAltItemSheet .altPortrait>img {
-    width: 100%;
-}
+/*=================================================== ITEM SHEET */
 
 .CYAltItemSheet {
-    border: 2px solid var(--hi);
-    color: var(--hi);
+    border-radius: 0.25em;
+}
+
+.CYAltItem-class .altEditor,
+.CYAltItem-weapon .altEditor {
+    margin-top: 1em;
+    max-height: 30%;
+}
+
+.CYAltItemSheet .altPortrait>img {
+    width: 100%;
 }
 
 .CYAltItemSheet>header {
     border: none !important;
 }
 
-.CYAltItemSheet {
-    border-radius: 0.25em;
-}
+/* .CYAltSheet fieldset { */
+/*     padding: 5px; */
+/*     margin: 0 0 5px 0; */
+/* } */
 
-.CYAltSheet>.window-content {
-    background: none !important;
-    flex-direction: row;
-    overflow: hidden;
-}
+/*=================================================================
+                        SHEET ELEMENTS
+=================================================================*/
 
-.CYAltSheet>.window-content legend,
-.CYAltSheet>.window-content input[type="text"],
-.CYAltSheet>.window-content textarea {
-    color: var(--blue)
-}
-
-.CYAltSheet fieldset {
-    padding: 5px;
-    margin: 0 0 5px 0;
-}
-
-.CYAltSheet .tabs>[data-tab].active {
-    background-color: var(--blueTrans);
-}
-
-/* SHEET ELEMENTS */
 
 .altButton {
-    background-color: var(--blue);
     border: none;
-    color: var(--hi);
     font-weight: bold;
+    margin: 5px 0;
     text-transform: uppercase;
-}
-
-.altButton:hover {
-    background-color: var(--hi);
-    color: var(--bg);
 }
 
 .altColumns {
@@ -126,7 +132,6 @@
 }
 
 .altPortrait img {
-    border: 1px solid var(--blue);
     cursor: pointer;
     object-fit: cover;
 }
@@ -156,7 +161,8 @@
     height: 75%;
 }
 
-/* INFO */
+/*========================================================= INFO */
+
 .altColumns>.altInfo {
     flex: 1.5;
     max-height: 350px;
@@ -178,25 +184,13 @@
     font-size: 2em;
 }
 
-.altPortrait #itemType {
-    background-color: var(--blue);
-    color: var(--hi);
-}
-
 .altData {
     overflow: scroll;
 }
 
-.altInfo input[type="text"] {
-    background-color: none;
-    border: 1px solid var(--blue);
-}
-
 .altInfo input[type="number"],
 .altData input[type="number"] {
-    background-color: var(--blue);
     border: none;
-    color: var(--hi);
     font-weight: bold;
     text-align: center;
     width: 4em;
@@ -214,17 +208,21 @@
 .altInfo textarea {
     background: none;
     border: none;
-    padding: 0;
+    padding: 5px;
     resize: none;
 }
 
 .altLabel {
-    color: var(--blue);
     font-weight: bold;
+}
+
+.altLabel,
+.altLabelMinor {
     text-transform: uppercase;
 }
 
-/* EDITOR */
+/*======================================================= EDITOR */
+
 .altEditor {
     overflow: scroll;
     width: 100%;
@@ -234,8 +232,57 @@
     min-height: 60px;
 }
 
-.altEditor p,
-.altEditor span,
-.altEditor textarea {
-    color: var(--blue);
+/*=================================================================
+                       COLORS
+=================================================================*/
+
+/*==================================================== NPC SHEET */
+
+.CYAltNpcSheet>header,
+.CYAltNpcSheet>header h4,
+.CYAltNpcSheet input[type="number"],
+.CYAltNpcSheet input[type="checkbox"],
+.CYAltNpcSheet .altButton {
+    background-color: var(--altNpcBlue);
+    border: none;
+    color: var(--altNpcHi);
+    font-weight: bold;
 }
+
+.CYAltNpcSheet .altButton:hover {
+    background-color: var(--altNpcHi);
+    color: var(--altNpcBlue);
+}
+
+.CYAltNpcSheet input[type="number"],
+.CYAltNpcSheet input[type="checkbox"],
+.CYAltNpcSheet .altButton {
+    text-transform: uppercase;
+}
+
+.CYAltNpcSheet .tabs>[data-tab].active {
+    background-color: var(--altNpcBlueTrans);
+}
+
+.CYAltNpcSheet input[type="text"] {
+    background: none;
+    border-bottom: 2px dotted var(--altNpcBlue);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    color: var(--altNpcBlue);
+}
+
+.CYAltNpcSheet textarea {
+    border: 2px dotted var(--altNpcBlue);
+    color: var(--altNpcBlue);
+}
+
+.CYAltNpcSheet p,
+.CYAltNpcSheet span,
+.CYAltNpcSheet legend {
+    color: var(--altNpcBg);
+}
+
+/*=================================================== ITEM SHEET */
+
