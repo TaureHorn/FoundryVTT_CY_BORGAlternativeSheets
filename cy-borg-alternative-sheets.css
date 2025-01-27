@@ -1,9 +1,16 @@
 :root {
+    --altItemHi: #eeeeee;
+    --altItemBg-blue: rgb(42, 109, 130);
+    --altItemBg-green: rgb(35, 118, 42);
+    --altItemBg-grey: rgb(66, 73, 73);
+    --altItemBg-purple: rgb(104, 11, 123);
+    --altItemBg-red: rgb(140, 24, 30);
     --altNpcBg: rgb(51, 51, 51);
     --altNpcBgTrans: rgba(0, 0, 0, 0.1);
     --altNpcHi: #dddddd;
     --altNpcBlue: rgb(49, 76, 118);
     --altNpcBlueTrans: rgba(49, 76, 118, 0.5);
+    --altNpcBorderRadius: 1.5em;
 }
 
 
@@ -28,7 +35,7 @@
 
 .CYAltNpcSheet {
     background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
-    border-radius: 1em;
+    border-radius: var(--altNpcBorderRadius);
 }
 
 .CYAltItem-app,
@@ -56,8 +63,9 @@
 }
 
 /*==================================================== NPC SHEET */
+
 .CYAltNpcSheet>header {
-    border-radius: 1em 1em 0 0;
+    border-radius: var(--altNpcBorderRadius) var(--altNpcBorderRadius) 0 0;
 }
 
 .CYAltNpcSheet fieldset {
@@ -84,27 +92,37 @@
 /*=================================================== ITEM SHEET */
 
 .CYAltItemSheet {
-    border-radius: 0.25em;
-}
-
-.CYAltItem-class .altEditor,
-.CYAltItem-weapon .altEditor {
-    margin-top: 1em;
-    max-height: 30%;
+    border-radius: 0.5em;
 }
 
 .CYAltItemSheet .altPortrait>img {
     width: 100%;
 }
 
-.CYAltItemSheet>header {
-    border: none !important;
+.CYAltItemSheet>header h4 {
+    font-weight: bold;
 }
 
-/* .CYAltSheet fieldset { */
-/*     padding: 5px; */
-/*     margin: 0 0 5px 0; */
-/* } */
+.CYAltItemSheet>header {
+    border: none !important;
+    font-weight: bold;
+}
+
+.CYAltItem-class, .altPortrait,
+.CYAltItem-weapon .altPortrait {
+    display: flex;
+    flex-direction: column;
+}
+
+.CYAltItem-class .altEditor,
+.CYAltItem-weapon .altEditor {
+    margin-top: 1em;
+    height: 100%;
+}
+
+.CYAltItem-nanoPower .altPortrait {
+    max-width: 50%;
+}
 
 /*=================================================================
                         SHEET ELEMENTS
@@ -138,10 +156,6 @@
 
 .altPortrait nav {
     width: 100%;
-}
-
-.altPortrait legend {
-    line-height: 0.5;
 }
 
 .altRowFlex,
@@ -184,16 +198,38 @@
     font-size: 2em;
 }
 
+.altItemName {
+    font-weight: bold;
+    gap: 0px;
+}
+
+.altItemName>span {
+    padding: 3px;
+}
+
+.altItemName>input[type="text"] {
+    border-radius: 0px;
+}
+
 .altData {
     overflow: scroll;
 }
 
+.altData input[type="text"] {
+    max-width: 66%;
+}
+
+.altData input {
+    height: 2em;
+    margin: 2px 0;
+}
+
 .altInfo input[type="number"],
 .altData input[type="number"] {
-    border: none;
     font-weight: bold;
     text-align: center;
     width: 4em;
+    padding: 0;
 }
 
 .altInfo #numberStats {
@@ -286,3 +322,59 @@
 
 /*=================================================== ITEM SHEET */
 
+.CYAltItemSheet {
+    border: 2px solid var(--altItemHi);
+}
+
+.CYAltItemSheet p,
+.CYAltItemSheet span,
+.CYAltItemSheet legend,
+.CYAltItemSheet input,
+.CYAltItemSheet textarea,
+.CYAltItemSheet header {
+    color: var(--altItemHi);
+}
+
+.CYAltItemSheet input[type="text"],
+.CYAltItemSheet input[type="number"],
+.CYAltItemSheet textarea {
+    border: 1px dotted var(--altItemHi);
+}
+
+.altItemName>span {
+    background-color: var(--altItemHi);
+    color: var(--altItemBg_app);
+}
+
+.altItemName input[type="text"] {
+    border: 2px solid var(--altItemHi);
+}
+
+.CYAltItemSheet .altBgInv {
+    background-color: var(--altItemHi);
+    color: var(--altNpcBg);
+}
+
+.CYAltItem-app .altBg,
+.CYAltItem-cyberdeck .altBg {
+    background-color: var(--altItemBg-blue);
+}
+
+.CYAltItem-armor .altBg,
+.CYAltItem-equipment .altBg {
+    background-color: var(--altItemBg-green);
+}
+
+.CYAltItem-class .altBg,
+.CYAltItem-feat .altBg {
+    background-color: var(--altItemBg-grey);
+}
+
+.CYAltItem-infestation .altBg, 
+.CYAltItem-nanoPower .altBg {
+    background-color: var(--altItemBg-purple);
+}
+
+.CYAltItem-weapon .altBg {
+    background-color: var(--altItemBg-red);
+}

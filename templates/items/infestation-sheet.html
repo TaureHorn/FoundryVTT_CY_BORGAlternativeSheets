@@ -5,22 +5,22 @@
 
             <div class="altPortrait">
                 <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
-                <div class="altFlex">
-                    <p>INFEST</p>
-                    <input id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                <div class="altFlex altItemName">
+                    <span id="itemType">INFEST</span>
+                    <input class="altBg" id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
             </div>
             <div class="altData">
 
-                <p class="altLabel">{{localize 'CY.Triggered'}}: </p>
+                <span class="altLabel">{{localize 'CY.Triggered'}}: </span>
                 <textarea name="system.triggered" rows="10">{{data.system.triggered}}</textarea>
 
             </div>
 
         </div>
 
-        <fieldset class="altEditor">
-            <legend class="altLabel">DESCRIPTION</legend>
+        <fieldset class="altEditor altBg">
+            <legend class="altLabel altBgInv">DESCRIPTION</legend>
             {{editor data.system.description target="system.description"
             button=true owner=owner editable=true engine="prosemirror"}}  
         </fieldset>
