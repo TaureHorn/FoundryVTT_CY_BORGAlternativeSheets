@@ -31,6 +31,18 @@
     overflow: hidden;
 }
 
+.CYAltItemSheet.minimized {
+    background-size: auto;
+}
+
+.CYAltNpcSheet.minimized {
+    background: none;
+}
+
+.CYAltNpcSheet.minimized>header {
+    border-radius: 0.5em;
+}
+
 /*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
@@ -108,7 +120,8 @@
     font-weight: bold;
 }
 
-.CYAltItem-class, .altPortrait,
+.CYAltItem-class,
+.altPortrait,
 .CYAltItem-weapon .altPortrait {
     display: flex;
     flex-direction: column;
@@ -370,7 +383,7 @@
     background-color: var(--altItemBg-grey);
 }
 
-.CYAltItem-infestation .altBg, 
+.CYAltItem-infestation .altBg,
 .CYAltItem-nanoPower .altBg {
     background-color: var(--altItemBg-purple);
 }

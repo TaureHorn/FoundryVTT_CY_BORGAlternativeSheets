@@ -33,8 +33,7 @@ Hooks.once('ready', async () => {
                     {
                         navSelector: ".altSheetTabs",
                         contentSelector: ".altSheetBody",
-                        initial: "description", // TODO: remove before push (testing only)
-                        // initial: "data",
+                        initial: "data",
                     },
                 ],
                 template: "modules/cy-borg-alternative-sheets/templates/npc-sheet.html",
