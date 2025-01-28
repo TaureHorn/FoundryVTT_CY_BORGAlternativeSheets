@@ -12,8 +12,8 @@
     --altNpcBlue: rgb(49, 76, 118);
     --altNpcBlueTrans: rgba(49, 76, 118, 0.5);
     --altNpcBorderRadius: 1.5em;
-    --altVehicleOrange: rgb(255, 123, 8);
-    --altVehicleOrangeTrans: rgba(255, 123, 8, 0.5);
+    --altVehicleOrange: rgb(255, 144, 8);
+    --altVehicleOrangeTrans: rgba(255, 144, 8, 0.5);
     --altVehicleBg: rgb(17, 17, 17)
 }
 
@@ -57,6 +57,7 @@
     border: 2px dotted #555;
     border-radius: 3px;
 }
+
 .CYAltVehicleSheet,
 .CYAltVehicleSheet .altButton,
 .CYAltVehicleSheet input[type="number"],
@@ -334,6 +335,26 @@
     min-height: 60px;
 }
 
+
+/*==================================================== INVENTORY */
+
+.altInvName {
+    flex: 5;
+}
+
+.altInvActions {
+    flex: 1;
+}
+
+.altInvItem {
+    margin: 2% 0;
+}
+
+.altInvItem:hover {
+    font-weight: 900;
+}
+
+
 /*=================================================================
                        COLORS
 =================================================================*/
@@ -392,6 +413,7 @@
     border-bottom: 1px solid var(--altVehicleOrange) !important;
 }
 
+.CYAltVehicleSheet a,
 .CYAltVehicleSheet p,
 .CYAltVehicleSheet span,
 .CYAltVehicleSheet legend,
@@ -406,7 +428,6 @@
 .CYAltVehicleSheet .altPortrait>img,
 .CYAltVehicleSheet input,
 .CYAltVehicleSheet fieldset {
-    /* border-color: var(--altVehicleOrangeTrans); */
     border: 2px solid var(--altVehicleOrangeTrans)
 }
 
@@ -418,7 +439,8 @@
 }
 
 .CYAltVehicleSheet .altButton:hover {
-    background-color: var(--altVehicleBg);
+    /* background-color: var(--altVehicleBg); */
+    background: none;
     color: var(--altVehicleOrange);
 }
 
@@ -431,7 +453,7 @@
     color: var(--altVehicleBg);
 }
 
-.CYAltVehicleSheet .altItemName> input[type="text"] {
+.CYAltVehicleSheet .altItemName>input[type="text"] {
     border: 2px solid var(--altVehicleOrange);
 }
 

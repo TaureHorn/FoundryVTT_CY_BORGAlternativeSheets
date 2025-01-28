@@ -15,6 +15,8 @@ function getCyborgSheets() {
 Hooks.once('ready', async () => {
     getCyborgSheets()
 
+    await loadTemplates(['modules/cy-borg-alternative-sheets/templates/equipment.html'])
+
     function zoomSheetPortrait(obj) {
         const zoom = new ImagePopout(obj.img, {
             title: obj.name,
@@ -81,7 +83,8 @@ Hooks.once('ready', async () => {
                     {
                         navSelector: ".altSheetTabs",
                         contentSelector: ".altSheetBody",
-                        initial: "info"
+                        // initial: "info"
+                        initial: "inventory"
                     }
                 ],
                 width: 750
@@ -92,9 +95,7 @@ Hooks.once('ready', async () => {
             super.activateListeners(html)
 
             //right click on portrait to zoom
-            html.on('contextmenu', '[data-zoom]', () => {
-                zoomSheetPortrait(this.object)
-            })
+            html.on('contextmenu', '[data-zoom]', () => { zoomSheetPortrait(this.object) })
         }
 
     }
