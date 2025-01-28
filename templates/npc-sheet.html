@@ -7,19 +7,19 @@
             <img id="charPortrait" src="{{actor.img}}" data-edit="img" data-zoom="{{actor.img}}" data-id="{{actor.id}}"title="{{actor.name}}"/>          
 
             <div>
-                <fieldset class="altFlex">
-                    <legend class="altLabel">ACTIONS</legend>
+                <span class="altLabel">ACTIONS</span>
+                <div class="altFlex">
                     <button type="button" class="altButton reaction-button">{{ localize "CY.Reaction" }}</button>
                     <button type="button" class="altButton morale-button">{{ localize "CY.Morale" }}</button>
-                </fieldset>
+                </div>
 
-                <fieldset class="altFlex">
-                    <legend class="altLabel">VIEW</legend>
+                <span class="altLabel">VIEW</span>
+                <div class="altFlex">
                     <nav class="altSheetTabs tabs altFlex" data-group="primary">
                         <button type="button" class="altButton" data-tab="data">{{ localize "CY.Data" }}</button>
                         <button type="button" class="altButton" data-tab="description">{{ localize "CY.Description" }}</button>
                     </nav>
-                </fieldset>
+                </div>
             </div>
 
         </div>

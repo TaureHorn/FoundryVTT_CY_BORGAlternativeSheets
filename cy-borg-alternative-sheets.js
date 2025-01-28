@@ -73,7 +73,18 @@ Hooks.once('ready', async () => {
     class AltCYVehicleSheet extends cyborgSheets.CYVehicleSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html"
+                classes: ['CYAltSheet', 'CYAltVehicleSheet'],
+                height: 500,
+                resizable: false,
+                template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html",
+                tabs: [
+                    {
+                        navSelector: ".altSheetTabs",
+                        contentSelector: ".altSheetBody",
+                        initial: "info"
+                    }
+                ],
+                width: 750
             })
         }
 
