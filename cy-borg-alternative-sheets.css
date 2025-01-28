@@ -74,7 +74,7 @@
 /*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.webp');
     border-radius: var(--altNpcBorderRadius);
 }
 
@@ -84,26 +84,26 @@
 
 .CYAltItem-app,
 .CYAltItem-cyberdeck {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/tech_background.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/tech_background.webp');
 }
 
 .CYAltItem-armor,
 .CYAltItem-equipment {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/equipment_background.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/equipment_background.webp');
 }
 
 .CYAltItem-class,
 .CYAltItem-feat {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/misc_background.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/misc_background.webp');
 }
 
 .CYAltItem-infestation,
 .CYAltItem-nanoPower {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/nano_background.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/nano_background.webp');
 }
 
 .CYAltItem-weapon {
-    background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.jpg');
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.webp');
 }
 
 /*==================================================== NPC SHEET */
