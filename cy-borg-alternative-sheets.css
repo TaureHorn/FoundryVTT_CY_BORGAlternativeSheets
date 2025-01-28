@@ -1,4 +1,5 @@
 :root {
+    --altFullHeight: calc(100% - var(--header-height));
     --altItemHi: #eeeeee;
     --altItemBg-blue: rgb(42, 109, 130);
     --altItemBg-green: rgb(35, 118, 42);
@@ -11,8 +12,16 @@
     --altNpcBlue: rgb(49, 76, 118);
     --altNpcBlueTrans: rgba(49, 76, 118, 0.5);
     --altNpcBorderRadius: 1.5em;
+    --altVehicleOrange: rgb(255, 123, 8);
+    --altVehicleOrangeTrans: rgba(255, 123, 8, 0.5);
+    --altVehicleBg: rgb(17, 17, 17)
 }
 
+@font-face {
+    font-family: "Handjet";
+    font-weight: 200;
+    src: url("/modules/cy-borg-alternative-sheets/assets/handjet_variable.ttf");
+}
 
 /*=================================================================
                         SHEET GENERAL 
@@ -31,6 +40,7 @@
     overflow: hidden;
 }
 
+.CYAltVehicleSheet.minimized,
 .CYAltItemSheet.minimized {
     background-size: auto;
 }
@@ -43,11 +53,33 @@
     border-radius: 0.5em;
 }
 
+.CYAltVehicleSheet {
+    border: 2px dotted #555;
+    border-radius: 3px;
+}
+.CYAltVehicleSheet,
+.CYAltVehicleSheet .altButton,
+.CYAltVehicleSheet input[type="number"],
+.CYAltVehicleSheet input[type="text"] {
+    font-family: Handjet, monospace;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.CYAltVehicleSheet>.window-content {
+    color: inherit;
+    font-weight: inherit
+}
+
 /*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
     background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.jpg');
     border-radius: var(--altNpcBorderRadius);
+}
+
+.CYAltVehicleSheet {
+    background-image: url('/modules/cy-borg-alternative-sheets/assets/npc_dot-screen.webp');
 }
 
 .CYAltItem-app,
@@ -82,12 +114,14 @@
 
 .CYAltNpcSheet fieldset {
     border: none;
-    margin: 5px 0;
     padding: 0px;
+    margin: 5px 0;
 }
 
 .CYAltNpcSheet .altEditor,
-.CYAltNpcSheet .altEditor .editor {
+.CYAltNpcSheet .editor,
+.CYAltVehicleSheet .altEditor,
+.CYAltVehicleSheet .editor {
     height: 100%
 }
 
@@ -99,6 +133,23 @@
 .CYAltNpcSheet .altPortrait>img {
     height: 230px;
     width: 230px;
+}
+
+/*================================================ VEHICLE SHEET */
+
+.CYAltVehicleSheet .altPortrait>img {
+    height: 272px;
+    width: 272px;
+}
+
+.CYAltVehicleSheet fieldset,
+.CYAltVehicleSheet .altColumns,
+.CYAltVehicleSheet .altInfo {
+    height: 100%;
+}
+
+.CYAltVehicleSheet .altSheetBody {
+    height: calc(100% - var(--header-height));
 }
 
 /*=================================================== ITEM SHEET */
@@ -150,7 +201,7 @@
 
 .altColumns {
     display: flex;
-    gap: 10px;
+    gap: 4px;
     justify-content: space-between;
     width: 100%;
 }
@@ -191,7 +242,7 @@
 
 .altColumns>.altInfo {
     flex: 1.5;
-    max-height: 350px;
+    height: var(--altFullHeight);
 }
 
 .altColumns>.altData {
@@ -201,7 +252,6 @@
 .altPortrait #charName,
 .altPortrait #itemType,
 .altInfo #charName {
-    font-family: monospace;
     font-weight: bold;
     height: auto;
 }
@@ -236,6 +286,7 @@
     margin: 2px 0;
 }
 
+.altStats input[type="number"],
 .altInfo input[type="number"],
 .altData input[type="number"] {
     font-weight: bold;
@@ -248,9 +299,11 @@
     margin-bottom: 10px;
 }
 
-.altInfo .altStats {
+.altStats {
+    align-items: center;
     display: flex;
     gap: 5px;
+    justify-content: space-between;
 }
 
 .altInfo textarea {
@@ -268,6 +321,7 @@
 .altLabelMinor {
     text-transform: uppercase;
 }
+
 
 /*======================================================= EDITOR */
 
@@ -332,6 +386,61 @@
     color: var(--altNpcBg);
 }
 
+/*================================================ VEHICLE SHEET */
+
+.CYAltVehicleSheet>header {
+    border-bottom: 1px solid var(--altVehicleOrange) !important;
+}
+
+.CYAltVehicleSheet p,
+.CYAltVehicleSheet span,
+.CYAltVehicleSheet legend,
+.CYAltVehicleSheet input,
+.CYAltVehicleSheet textarea,
+.CYAltVehicleSheet header,
+.CYAltVehicleSheet button,
+.CYAltVehicleSheet input[type="text"] {
+    color: var(--altVehicleOrange);
+}
+
+.CYAltVehicleSheet .altPortrait>img,
+.CYAltVehicleSheet input,
+.CYAltVehicleSheet fieldset {
+    /* border-color: var(--altVehicleOrangeTrans); */
+    border: 2px solid var(--altVehicleOrangeTrans)
+}
+
+.CYAltVehicleSheet input[type="number"],
+.CYAltVehicleSheet input[type="checkbox"],
+.CYAltVehicleSheet .altButton {
+    background-color: var(--altVehicleOrange);
+    color: var(--altVehicleBg);
+}
+
+.CYAltVehicleSheet .altButton:hover {
+    background-color: var(--altVehicleBg);
+    color: var(--altVehicleOrange);
+}
+
+.CYAltVehicleSheet .tabs>[data-tab].active {
+    background-color: var(--altVehicleOrangeTrans);
+}
+
+.CYAltVehicleSheet .altItemName>span {
+    background-color: var(--altVehicleOrange);
+    color: var(--altVehicleBg);
+}
+
+.CYAltVehicleSheet .altItemName> input[type="text"] {
+    border: 2px solid var(--altVehicleOrange);
+}
+
+.altVehicleTextInv {
+    background-color: var(--altVehicleOrange);
+    color: var(--altVehicleBg) !important;
+    font-weight: 600;
+}
+
 /*=================================================== ITEM SHEET */
 
 .CYAltItemSheet {
@@ -353,12 +462,12 @@
     border: 1px dotted var(--altItemHi);
 }
 
-.altItemName>span {
+CYAltItemSheet .altItemName>span {
     background-color: var(--altItemHi);
     color: var(--altItemBg_app);
 }
 
-.altItemName input[type="text"] {
+CYAltItemSheet .altItemName input[type="text"] {
     border: 2px solid var(--altItemHi);
 }
 
