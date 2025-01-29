@@ -1,0 +1,12 @@
+{{#each data.system.weapons as |item|}}
+{{#if data.system.equipped}}
+<div class="altFlex altInvItem item" data-item-id="{{item._id}}">
+    <a class="altInvName item-edit">{{item.name}} ({{item.system.quantity}})</a>
+    <div class="altInvActions">
+        <a class="item-qty-plus"><i class="fas fa-plus"></i></a>
+        <a class="item-qty-minus"><i class="fas fa-minus"></i></a>
+        <a class="item-delete"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+{{/if}}
+{{/each}}
