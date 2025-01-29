@@ -28,6 +28,16 @@ Hooks.once('ready', async () => {
         zoom.render(true)
     }
 
+    async function changeArmorTier(event, actor) {
+        let newTier = parseInt($(event.currentTarget)[0].text)
+        const item = actor.items.get($(event.currentTarget).parents('.item').data('itemId'))
+        if (newTier > item.system.tier.max) {
+            ui.notifications.warn('That is above the maximum armor tier for this item')
+            newTier = item.system.tier.max
+        }
+        await item.update({ ['system.tier.value']: newTier })
+    }
+
     class AltCYNpcSheet extends cyborgSheets.CYNpcSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
@@ -86,12 +96,16 @@ Hooks.once('ready', async () => {
                     {
                         navSelector: ".altSheetTabs",
                         contentSelector: ".altSheetBody",
-                        // initial: "info"
-                        initial: "inventory"
+                        initial: "info"
                     }
                 ],
                 width: 750
             })
+        }
+
+        async getData() {
+            console.log(await super.getData())
+            return await super.getData()
         }
 
         activateListeners(html) {
@@ -99,6 +113,7 @@ Hooks.once('ready', async () => {
 
             //right click on portrait to zoom
             html.on('contextmenu', '[data-zoom]', () => { zoomSheetPortrait(this.object) })
+            html.find('.altTier').on('click', (event) => changeArmorTier(event, this.actor))
         }
 
     }

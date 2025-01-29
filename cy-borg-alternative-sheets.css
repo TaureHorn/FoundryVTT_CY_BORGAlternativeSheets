@@ -346,22 +346,28 @@
 
 /*==================================================== INVENTORY */
 
-.altInvName {
-    flex: 5;
-}
-
-.altInvActions {
-    flex: 1;
-}
-
 .altInvItem {
-    margin: 2% 0;
+    margin: 1% 0;
 }
 
-.altInvItem:hover {
+.altInvItem>a:hover {
     font-weight: 900;
 }
 
+.altGrid {
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+}
+
+.altGrid .actionButtons {
+    text-align: right;
+}
+
+.altTier {
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
 
 /*=================================================================
                        COLORS
@@ -447,7 +453,6 @@
 }
 
 .CYAltVehicleSheet .altButton:hover {
-    /* background-color: var(--altVehicleBg); */
     background: none;
     color: var(--altVehicleOrange);
 }
@@ -463,6 +468,23 @@
 
 .CYAltVehicleSheet .altItemName>input[type="text"] {
     border: 2px solid var(--altVehicleOrange);
+}
+
+.CYAltVehicleSheet .item-equip {
+    color: var(--altVehicleOrangeTrans);
+}
+
+.CYAltVehicleSheet .item-equip.equipped {
+    color: var(--altVehicleOrange);
+}
+
+.CYAltVehicleSheet .altTier {
+    border: 1px solid var(--altVehicleOrange);
+}
+
+.CYAltVehicleSheet .altTierNA {
+    border-color: var(--altVehicleOrangeTrans);
+    color: var(--altVehicleOrangeTrans);
 }
 
 .altVehicleTextInv {
@@ -492,12 +514,12 @@
     border: 1px dotted var(--altItemHi);
 }
 
-CYAltItemSheet .altItemName>span {
-    background-color: var(--altItemHi);
+.CYAltItemSheet .altItemName>span {
+    background-color: var(--altItemHi) !important;
     color: var(--altItemBg_app);
 }
 
-CYAltItemSheet .altItemName input[type="text"] {
+.CYAltItemSheet .altItemName input[type="text"] {
     border: 2px solid var(--altItemHi);
 }
 

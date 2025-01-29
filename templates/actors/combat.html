@@ -1,10 +1,35 @@
+<div class="altGrid">
+    <span class="altVehicleTextInv">ITEM</span>
+    <span class="altVehicleTextInv">ATTACK/TIER</span>
+    <span class="altVehicleTextInv actionButtons">BUTTONS</span>
+</div>
+{{#each data.system.armor as |item|}}
+{{#if item.system.equipped}}
+<div class="altGrid altInvItem item" data-item-id="{{item._id}}">
+    <a class="item-edit">{{item.name}}</a>
+    <div class="altFlex">
+        <a class="altTier {{#ifEq item.system.tier.value 0}}altVehicleTextInv{{/ifEq}}" value="0" name="{{item._id}}.tier.value">0</a>
+        <a class="altTier {{#ifEq item.system.tier.value 1}}altVehicleTextInv{{/ifEq}} {{#ifLt item.system.tier.max 1}}altTierNA{{/ifLt}}" value="1" name="{{item._id}}.tier.value">1</a>
+        <a class="altTier {{#ifEq item.system.tier.value 2}}altVehicleTextInv{{/ifEq}} {{#ifLt item.system.tier.max 2}}altTierNA{{/ifLt}}" value="2" name="{{item._id}}.tier.value">2</a>
+        <a class="altTier {{#ifEq item.system.tier.value 3}}altVehicleTextInv{{/ifEq}} {{#ifLt item.system.tier.max 3}}altTierNA{{/ifLt}}" value="3" name="{{item._id}}.tier.value">3</a>
+        <a class="altTier {{#ifEq item.system.tier.value 4}}altVehicleTextInv{{/ifEq}} {{#ifLt item.system.tier.max 4}}altTierNA{{/ifLt}}" value="4" name="{{item._id}}.tier.value">4</a>
+    </div>
+    <div class="actionButtons">
+        <a class="item-equip equipped"><i class="fas fa-hand"></i></a>
+        <a class="item-delete"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+{{/if}}
+{{/each}}
+
 {{#each data.system.weapons as |item|}}
-{{#if data.system.equipped}}
-<div class="altFlex altInvItem item" data-item-id="{{item._id}}">
-    <a class="altInvName item-edit">{{item.name}} ({{item.system.quantity}})</a>
-    <div class="altInvActions">
-        <a class="item-qty-plus"><i class="fas fa-plus"></i></a>
-        <a class="item-qty-minus"><i class="fas fa-minus"></i></a>
+{{#if item.system.equipped}}
+<div class="altGrid altInvItem item" data-item-id="{{item._id}}">
+    <a class="item-edit">{{item.name}}</a>
+    <a class="attack-button">{{item.system.damage}} {{item.system.weaponType}} {{#if
+        item.system.autofire}}autofire{{/if}}</a>
+    <div class="actionButtons">
+        <a class="item-equip equipped"><i class="fas fa-hand"></i></a>
         <a class="item-delete"><i class="fas fa-trash"></i></a>
     </div>
 </div>
