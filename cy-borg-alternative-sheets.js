@@ -15,12 +15,27 @@ function getCyborgSheets() {
 Hooks.once('ready', async () => {
     getCyborgSheets()
 
+    await loadTemplates([
+        'modules/cy-borg-alternative-sheets/templates/actors/equipment.html',
+        'modules/cy-borg-alternative-sheets/templates/actors/combat.html',
+    ])
+
     function zoomSheetPortrait(obj) {
         const zoom = new ImagePopout(obj.img, {
             title: obj.name,
             uuid: obj.uuid
         })
         zoom.render(true)
+    }
+
+    async function changeArmorTier(event, actor) {
+        let newTier = parseInt($(event.currentTarget)[0].text)
+        const item = actor.items.get($(event.currentTarget).parents('.item').data('itemId'))
+        if (newTier > item.system.tier.max) {
+            ui.notifications.warn('That is above the maximum armor tier for this item')
+            newTier = item.system.tier.max
+        }
+        await item.update({ ['system.tier.value']: newTier })
     }
 
     class AltCYNpcSheet extends cyborgSheets.CYNpcSheet {
@@ -36,7 +51,7 @@ Hooks.once('ready', async () => {
                         initial: "data",
                     },
                 ],
-                template: "modules/cy-borg-alternative-sheets/templates/npc-sheet.html",
+                template: "modules/cy-borg-alternative-sheets/templates/actors/npc-sheet.html",
                 width: 600
             })
         }
@@ -55,7 +70,7 @@ Hooks.once('ready', async () => {
     class AltCYCharacterSheet extends cyborgSheets.CYCharacterSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-alternative-sheets/templates/character-sheet.html"
+                template: "modules/cy-borg-alternative-sheets/templates/actors/character-sheet.html"
             })
         }
 
@@ -76,7 +91,7 @@ Hooks.once('ready', async () => {
                 classes: ['CYAltSheet', 'CYAltVehicleSheet'],
                 height: 500,
                 resizable: false,
-                template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html",
+                template: "modules/cy-borg-alternative-sheets/templates/actors/vehicle-sheet.html",
                 tabs: [
                     {
                         navSelector: ".altSheetTabs",
@@ -88,13 +103,17 @@ Hooks.once('ready', async () => {
             })
         }
 
+        async getData() {
+            console.log(await super.getData())
+            return await super.getData()
+        }
+
         activateListeners(html) {
             super.activateListeners(html)
 
             //right click on portrait to zoom
-            html.on('contextmenu', '[data-zoom]', () => {
-                zoomSheetPortrait(this.object)
-            })
+            html.on('contextmenu', '[data-zoom]', () => { zoomSheetPortrait(this.object) })
+            html.find('.altTier').on('click', (event) => changeArmorTier(event, this.actor))
         }
 
     }

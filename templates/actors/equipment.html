@@ -1,0 +1,56 @@
+<div class="altFlex"> 
+    <div style="flex:12">
+        <span class="altVehicleTextInv">{{localize "CY.Carrying"}}:</span>
+        &nbsp
+        <span><b> {{ceil actor.carryingSlots}} / {{actor.normalCarryingCapacity}}</b></span>
+    </div>
+    <a class="altVehicleTextInv" style="flex:1;text-align: center"><i class="fas fa-plus"></i></a>
+</div>
+
+{{#each data.system.equipment as |item|}}
+{{#if @first}}
+<p class="altVehicleTextInv">Equipment</p>
+{{/if}}
+<div class="altFlex altInvItem item" data-item-id="{{item._id}}">
+    <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
+    <div>
+        <a class="item-qty-plus"><i class="fas fa-plus"></i></a>
+        <a class="item-qty-minus"><i class="fas fa-minus"></i></a>
+        <a class="item-delete"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+{{/each}}
+
+{{#each data.system.weapons as |item|}}
+{{#unless item.system.equipped}}
+{{#if @first}}
+<p class="altVehicleTextInv">Weapons</p>
+{{/if}}
+<div class="altFlex altInvItem item" data-item-id="{{item._id}}">
+    <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
+    <div>
+        <a class="item-equip"><i class="fas fa-hand"></i></a>
+        <a class="item-qty-plus"><i class="fas fa-plus"></i></a>
+        <a class="item-qty-minus"><i class="fas fa-minus"></i></a>
+        <a class="item-delete"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+{{/unless}}
+{{/each}}
+
+{{#each data.system.armor as |item|}}
+{{#unless item.system.equipped}}
+{{#if @first}}
+<p class="altVehicleTextInv">Armor</p>
+{{/if}}
+<div class="altFlex altInvItem item" data-item-id="{{item._id}}">
+    <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
+    <div>
+        <a class="item-equip"><i class="fas fa-hand"></i></a>
+        <a class="item-qty-plus"><i class="fas fa-plus"></i></a>
+        <a class="item-qty-minus"><i class="fas fa-minus"></i></a>
+        <a class="item-delete"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+{{/unless}}
+{{/each}}
