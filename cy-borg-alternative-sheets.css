@@ -123,7 +123,8 @@
 .CYAltNpcSheet .editor,
 .CYAltVehicleSheet .altEditor,
 .CYAltVehicleSheet .editor {
-    height: 100%
+    height: 100%;
+    width: 100%;
 }
 
 .CYAltNpcSheet legend {
@@ -150,7 +151,7 @@
 }
 
 .CYAltVehicleSheet .altSheetBody {
-    height: calc(100% - var(--header-height));
+    height: 100%;
 }
 
 /*=================================================== ITEM SHEET */
@@ -172,6 +173,10 @@
     font-weight: bold;
 }
 
+.CYAltItemSheet .altEditor {
+    width: 100%;
+}
+
 .CYAltItem-class .altPortrait,
 .CYAltItem-weapon .altPortrait {
     display: flex;
@@ -191,7 +196,6 @@
 /*=================================================================
                         SHEET ELEMENTS
 =================================================================*/
-
 
 .altButton {
     border: none;
@@ -239,6 +243,10 @@
     height: 75%;
 }
 
+.altHeight100 {
+    height: 100%;
+}
+
 /*========================================================= INFO */
 
 .altColumns>.altInfo {
@@ -264,6 +272,7 @@
 .altItemName {
     font-weight: bold;
     gap: 0px;
+    width: 100%;
 }
 
 .altItemName>span {
@@ -328,7 +337,6 @@
 
 .altEditor {
     overflow: scroll;
-    width: 100%;
 }
 
 .altEditor .editor {

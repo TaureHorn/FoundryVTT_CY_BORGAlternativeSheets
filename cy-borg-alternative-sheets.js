@@ -15,7 +15,10 @@ function getCyborgSheets() {
 Hooks.once('ready', async () => {
     getCyborgSheets()
 
-    await loadTemplates(['modules/cy-borg-alternative-sheets/templates/equipment.html'])
+    await loadTemplates([
+        'modules/cy-borg-alternative-sheets/templates/actors/equipment.html',
+        'modules/cy-borg-alternative-sheets/templates/actors/combat.html',
+    ])
 
     function zoomSheetPortrait(obj) {
         const zoom = new ImagePopout(obj.img, {
@@ -38,7 +41,7 @@ Hooks.once('ready', async () => {
                         initial: "data",
                     },
                 ],
-                template: "modules/cy-borg-alternative-sheets/templates/npc-sheet.html",
+                template: "modules/cy-borg-alternative-sheets/templates/actors/npc-sheet.html",
                 width: 600
             })
         }
@@ -57,7 +60,7 @@ Hooks.once('ready', async () => {
     class AltCYCharacterSheet extends cyborgSheets.CYCharacterSheet {
         static get defaultOptions() {
             return foundry.utils.mergeObject(super.defaultOptions, {
-                template: "modules/cy-borg-alternative-sheets/templates/character-sheet.html"
+                template: "modules/cy-borg-alternative-sheets/templates/actors/character-sheet.html"
             })
         }
 
@@ -78,7 +81,7 @@ Hooks.once('ready', async () => {
                 classes: ['CYAltSheet', 'CYAltVehicleSheet'],
                 height: 500,
                 resizable: false,
-                template: "modules/cy-borg-alternative-sheets/templates/vehicle-sheet.html",
+                template: "modules/cy-borg-alternative-sheets/templates/actors/vehicle-sheet.html",
                 tabs: [
                     {
                         navSelector: ".altSheetTabs",
