@@ -1,8 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
 
     <div class="altRowFlex altFullHeight">
-        <div class="altPortrait">
-            <img class="altImage" id="itemPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+        <div class="altPortrait altRowFlex">
+            <img id="itemPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
             <div class="altJoin">
                 <span class="altInv altPadding">App</span>
                 <input id="itemName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
@@ -11,7 +11,7 @@
 
 
         <fieldset class="altEditor">
-            <legend class="altInv">Description</legend>
+            <legend class="altInv altSmallPadding">Description</legend>
             {{editor data.system.description target="system.description"
             button=true owner=owner editable=true engine="prosemirror"}}  
         </fieldset>
