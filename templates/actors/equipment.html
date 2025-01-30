@@ -1,16 +1,14 @@
 <div class="altFlex"> 
-    <div style="flex:12">
-        <span class="altInv">{{localize "CY.Carrying"}}:</span>
+    <div class="altMarginBtm" style="flex:12">
+        <span class="altInv altSmallPadding">{{localize "CY.Carrying"}}:</span>
         &nbsp
         <span><b> {{ceil actor.carryingSlots}} / {{actor.normalCarryingCapacity}}</b></span>
     </div>
-    <a class="altInv" style="flex:1;text-align: center"><i class="fas fa-plus"></i></a>
+    <a id="addItem" class="altInv" style="flex:1;text-align: center"><i class="fas fa-plus"></i></a>
 </div>
 
+<p class="altInv altSmallPadding">Equipment</p>
 {{#each data.system.equipment as |item|}}
-{{#if @first}}
-<p class="altInv">Equipment</p>
-{{/if}}
 <div class="altFlex altMarginBtm item" data-item-id="{{item._id}}">
     <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
     <div>
@@ -21,11 +19,9 @@
 </div>
 {{/each}}
 
+<p class="altInv altSmallPadding">Weapons</p>
 {{#each data.system.weapons as |item|}}
 {{#unless item.system.equipped}}
-{{#if @first}}
-<p class="altInv">Weapons</p>
-{{/if}}
 <div class="altFlex altMarginBtm item" data-item-id="{{item._id}}">
     <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
     <div>
@@ -38,11 +34,9 @@
 {{/unless}}
 {{/each}}
 
+<p class="altInv altSmallPadding">Armor</p>
 {{#each data.system.armor as |item|}}
 {{#unless item.system.equipped}}
-{{#if @first}}
-<p class="altInv">Armor</p>
-{{/if}}
 <div class="altFlex altMarginBtm item" data-item-id="{{item._id}}">
     <a class="item-edit">{{item.name}} ({{item.system.quantity}})</a>
     <div>
