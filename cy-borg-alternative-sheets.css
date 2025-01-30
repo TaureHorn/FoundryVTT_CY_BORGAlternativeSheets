@@ -1,20 +1,7 @@
 :root {
-    --altFullHeight: calc(100% - var(--header-height));
-    --altItemHi: #eeeeee;
-    --altItemBg-blue: rgb(42, 109, 130);
-    --altItemBg-green: rgb(35, 118, 42);
-    --altItemBg-grey: rgb(66, 73, 73);
-    --altItemBg-purple: rgb(104, 11, 123);
-    --altItemBg-red: rgb(140, 24, 30);
-    --altNpcBg: rgb(51, 51, 51);
-    --altNpcBgTrans: rgba(0, 0, 0, 0.1);
-    --altNpcHi: #dddddd;
-    --altNpcBlue: rgb(49, 76, 118);
-    --altNpcBlueTrans: rgba(49, 76, 118, 0.5);
-    --altNpcBorderRadius: 1.5em;
-    --altVehicleOrange: rgb(255, 144, 8);
-    --altVehicleOrangeTrans: rgba(255, 144, 8, 0.5);
-    --altVehicleBg: rgb(17, 17, 17)
+    --altGap: 5px;
+    --altPadding: 5px;
+    --altBorderWidth: 2px;
 }
 
 @font-face {
@@ -23,60 +10,10 @@
     src: url("/modules/cy-borg-alternative-sheets/assets/handjet_variable.ttf");
 }
 
-/*=================================================================
-                        SHEET GENERAL 
-=================================================================*/
-
-
-.CYAltSheet {
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: none;
-}
-
-.CYAltSheet>.window-content {
-    background: none !important;
-    flex-direction: row;
-    overflow: hidden;
-}
-
-.CYAltVehicleSheet.minimized,
-.CYAltItemSheet.minimized {
-    background-size: auto;
-}
-
-.CYAltNpcSheet.minimized {
-    background: none;
-}
-
-.CYAltNpcSheet.minimized>header {
-    border-radius: 0.5em;
-}
-
-.CYAltVehicleSheet {
-    border: 2px dotted #555;
-    border-radius: 3px;
-}
-
-.CYAltVehicleSheet,
-.CYAltVehicleSheet .altButton,
-.CYAltVehicleSheet input[type="number"],
-.CYAltVehicleSheet input[type="text"] {
-    font-family: Handjet, monospace;
-    font-size: large;
-    text-transform: uppercase;
-}
-
-.CYAltVehicleSheet>.window-content {
-    color: inherit;
-    font-weight: inherit
-}
-
 /*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
     background-image: url('/modules/cy-borg-alternative-sheets/assets/id_card.webp');
-    border-radius: var(--altNpcBorderRadius);
 }
 
 .CYAltVehicleSheet {
@@ -85,469 +22,448 @@
 
 .CYAltItem-app,
 .CYAltItem-cyberdeck {
+    --altBg: rgb(42, 109, 130);
+    --altTrans: rgba(42, 109, 130, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/tech_background.webp');
 }
 
 .CYAltItem-armor,
 .CYAltItem-equipment {
+    --altBg: rgb(35, 118, 42);
+    --altTrans: rgba(35, 118, 42, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/equipment_background.webp');
 }
 
 .CYAltItem-class,
 .CYAltItem-feat {
+    --altBg: rgb(66, 73, 73);
+    --altTrans: rgba(66, 73, 73, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/misc_background.webp');
 }
 
 .CYAltItem-infestation,
 .CYAltItem-nanoPower {
+    --altBg: rgb(104, 11, 123);
+    --altTrans: rgba(104, 11, 123, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/nano_background.webp');
 }
 
 .CYAltItem-weapon {
+    --altBg: rgb(140, 24, 30);
+    --altTrans: rgba(140, 24, 30, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.webp');
 }
 
-/*==================================================== NPC SHEET */
-
-.CYAltNpcSheet>header {
-    border-radius: var(--altNpcBorderRadius) var(--altNpcBorderRadius) 0 0;
-}
-
-.CYAltNpcSheet fieldset {
-    border: none;
-    padding: 0px;
-    margin: 5px 0;
-}
-
-.CYAltNpcSheet .altEditor,
-.CYAltNpcSheet .editor,
-.CYAltVehicleSheet .altEditor,
-.CYAltVehicleSheet .editor {
-    height: 100%;
-    width: 100%;
-}
-
-.CYAltNpcSheet legend {
-    font-weight: 900;
-    padding: 0;
-}
-
-.CYAltNpcSheet .altPortrait>img {
-    height: 230px;
-    width: 230px;
-}
-
-/*================================================ VEHICLE SHEET */
-
-.CYAltVehicleSheet .altPortrait>img {
-    height: 272px;
-    width: 272px;
-}
-
-.CYAltVehicleSheet fieldset,
-.CYAltVehicleSheet .altColumns,
-.CYAltVehicleSheet .altInfo {
-    height: 100%;
-}
-
-.CYAltVehicleSheet .altSheetBody {
-    height: 100%;
-}
-
-/*=================================================== ITEM SHEET */
-
-.CYAltItemSheet {
-    border-radius: 0.5em;
-}
-
-.CYAltItemSheet .altPortrait>img {
-    width: 100%;
-}
-
-.CYAltItemSheet>header h4 {
-    font-weight: bold;
-}
-
-.CYAltItemSheet>header {
-    border: none !important;
-    font-weight: bold;
-}
-
-.CYAltItemSheet .altEditor {
-    width: 100%;
-}
-
-.CYAltItem-class .altPortrait,
-.CYAltItem-weapon .altPortrait {
-    display: flex;
-    flex-direction: column;
-}
-
-.CYAltItem-class .altEditor,
-.CYAltItem-weapon .altEditor {
-    margin-top: 1em;
-    height: 100%;
-}
-
-.CYAltItem-nanoPower .altPortrait {
-    max-width: 50%;
-}
-
 /*=================================================================
-                        SHEET ELEMENTS
+                        SHEET GENERAL 
 =================================================================*/
+
+.CYAltSheet {
+    --color-scrollbar: var(--altHi);
+    --color-scrollbar-track: var(--altTrans);
+
+    background-size: contain;
+    border-radius: var(--altBorderRadius);
+}
+
+.CYAltSheet .window-content {
+    background: none;
+    color: var(--altHi);
+}
+
+.CYAltSheet>header {
+    border-radius: var(--altBorderRadius) var(--altBorderRadius) 0 0;
+    border-bottom: none !important;
+}
+
+.CYAltSheet header,
+.CYAltSheet header>h4 {
+    font-weight: bold;
+}
+
+.CYAltSheet .editor .editor-menu,
+.CYAltSheet .editor .editor-menu button,
+.CYAltSheet .editor .editor-menu li,
+.CYAltSheet .editor .editor-menu i {
+    background-color: var(--altBg);
+    color: var(--altHi);
+}
+
+.CYAltSheet .editor .editor-menu,
+.CYAltSheet .editor .editor-menu button {
+    border: var(--altBorderWidth) solid var(--altTrans);
+}
+
+.CYAltSheet fieldset {
+    border: var(--altBorderWidth) solid var(--altTrans);
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.CYAltSheet input[type="text"],
+.CYAltSheet textarea {
+    border: var(--altBorderWidth) solid var(--altTrans);
+    color: var(--altHi);
+}
 
 .altButton {
     border: none;
-    font-weight: bold;
-    margin: 5px 0;
-    text-transform: uppercase;
+    margin: 0;
 }
 
-.altColumns {
+.tabs>[data-tab].active {
+    background-color: var(--altTrans);
+    color: var(--altBg);
+}
+
+.altButton:hover {
+    background-color: var(--altBg);
+    color: var(--altHi);
+}
+
+.altContainer,
+.altGrid {
+    display: grid;
+    gap: var(--altGap);
+}
+
+.altFlex,
+.altRowFlex,
+.altJoin {
+    align-items: center;
     display: flex;
-    gap: 4px;
     justify-content: space-between;
-    width: 100%;
 }
 
-.altColumns>.altPortrait {
-    flex: 1;
+.altFlex,
+.altRowFlex,
+.altHpNum {
+    gap: var(--altGap);
+}
+
+.altHp {
+    align-items: center;
+    line-height: 1;
+}
+
+.altHp input[type="number"] {
+    border: none;
+    background-color: var(--altHi);
+    color: var(--altBg);
+    font-weight: bold;
+    text-align: center;
+}
+
+.altHpNum {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.altHpSlash {
+    font-size: 1.75em;
+}
+
+.altImage {
+    border: var(--altBorderWidth) solid var(--altBg);
+    cursor: pointer;
     height: auto;
     width: 100%;
 }
 
-.altPortrait img {
-    cursor: pointer;
-    object-fit: cover;
+.altInv {
+    background-color: var(--altHi);
+    color: var(--altBg);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.altPortrait nav {
-    width: 100%;
+.altJoin input[type="text"] {
+    border: var(--altBorderWidth) solid var(--altHi);
+    border-radius: 0px;
+    padding-left: var(--altPadding);
 }
 
-.altRowFlex,
-.altFlex {
-    align-items: center;
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
+.altJoin span {
+    border: calc(var(--altBorderWidth) / 2) solid var(--altHi);
 }
 
 .altRowFlex {
     flex-direction: column;
-    height: 100%;
-}
-
-.altSheetBody {
-    height: 75%;
-}
-
-.altHeight100 {
-    height: 100%;
-}
-
-/*========================================================= INFO */
-
-.altColumns>.altInfo {
-    flex: 1.5;
-    height: var(--altFullHeight);
-}
-
-.altColumns>.altData {
-    flex: 1;
-}
-
-.altPortrait #charName,
-.altPortrait #itemType,
-.altInfo #charName {
-    font-weight: bold;
-    height: auto;
-}
-
-.altInfo #charName {
-    font-size: 2em;
-}
-
-.altItemName {
-    font-weight: bold;
-    gap: 0px;
-    width: 100%;
-}
-
-.altItemName>span {
-    padding: 3px;
-}
-
-.altItemName>input[type="text"] {
-    border-radius: 0px;
-}
-
-.altData {
-    overflow: scroll;
-}
-
-.altData input[type="text"] {
-    max-width: 66%;
-}
-
-.altData input {
-    height: 2em;
-    margin: 2px 0;
-}
-
-.altStats input[type="number"],
-.altInfo input[type="number"],
-.altData input[type="number"] {
-    font-weight: bold;
-    text-align: center;
-    width: 4em;
-    padding: 0;
-}
-
-.altInfo #numberStats {
-    margin-bottom: 10px;
-}
-
-.altStats {
-    align-items: center;
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
-}
-
-.altInfo textarea {
-    background: none;
-    border: none;
-    padding: 5px;
-    resize: none;
-}
-
-.altLabel {
-    font-weight: bold;
-}
-
-.altLabel,
-.altLabelMinor {
-    text-transform: uppercase;
-}
-
-
-/*======================================================= EDITOR */
-
-.altEditor {
-    overflow: scroll;
-}
-
-.altEditor .editor {
-    min-height: 60px;
-}
-
-
-/*==================================================== INVENTORY */
-
-.altInvItem {
-    margin: 1% 0;
-}
-
-.altInvItem>a:hover {
-    font-weight: 900;
-}
-
-.altGrid {
-    display: grid;
-    grid-template-columns: 40% 40% 20%;
-}
-
-.altGrid .actionButtons {
-    text-align: right;
 }
 
 .altTier {
+    border: var(--altBorderWidth) solid var(--altHi);
     font-weight: bold;
     text-align: center;
     width: 100%;
 }
 
+.altTierNA {
+    border-color: var(--altTrans);
+    color: var(--altTrans);
+}
+
 /*=================================================================
-                       COLORS
+                        SHEET VARIABLE ELEMENTS 
 =================================================================*/
+
+.CYAltVehicleSheet>header,
+.CYAltItemSheet>header {
+    background-color: none;
+    color: var(--altHi);
+}
 
 /*==================================================== NPC SHEET */
 
-.CYAltNpcSheet>header,
-.CYAltNpcSheet>header h4,
-.CYAltNpcSheet input[type="number"],
-.CYAltNpcSheet input[type="checkbox"],
-.CYAltNpcSheet .altButton {
-    background-color: var(--altNpcBlue);
-    border: none;
-    color: var(--altNpcHi);
-    font-weight: bold;
+.CYAltNpcSheet {
+    --altBg: #eeeeee;
+    --altDark: rgb(72, 72, 72);
+    --altHi: rgb(49, 76, 118);
+    --altTrans: rgba(49, 76, 118, 0.5);
+    --altBorderRadius: 1.5em
 }
 
-.CYAltNpcSheet .altButton:hover {
-    background-color: var(--altNpcHi);
-    color: var(--altNpcBlue);
-}
-
-.CYAltNpcSheet input[type="number"],
-.CYAltNpcSheet input[type="checkbox"],
-.CYAltNpcSheet .altButton {
-    text-transform: uppercase;
-}
-
-.CYAltNpcSheet .tabs>[data-tab].active {
-    background-color: var(--altNpcBlueTrans);
+.CYAltNpcSheet>header {
+    background-color: var(--altHi);
+    color: var(--altBg);
 }
 
 .CYAltNpcSheet input[type="text"] {
-    background: none;
-    border-bottom: 2px dotted var(--altNpcBlue);
+    border-top: none;
     border-left: none;
     border-right: none;
-    border-top: none;
-    color: var(--altNpcBlue);
+    border-bottom: var(--altBorderWidth) dotted var(--altHi);
 }
 
-.CYAltNpcSheet textarea {
-    border: 2px dotted var(--altNpcBlue);
-    color: var(--altNpcBlue);
+.CYAltNpcSheet textarea,
+.CYAltNpcSheet .editor {
+    border: var(--altBorderWidth) dotted var(--altHi);
 }
 
-.CYAltNpcSheet p,
-.CYAltNpcSheet span,
-.CYAltNpcSheet legend {
-    color: var(--altNpcBg);
+.CYAltNpcSheet #charName {
+    border-radius: 0px;
+    font-size: 1.75em;
+    font-weight: bold;
+    margin: 0 0 var(--altPadding) 0;
+}
+
+.CYAltNpcSheet .altEditor,
+.CYAltNpcSheet .editor {
+    height: 23em;
+    padding: var(--altPadding);
+}
+
+.CYAltNpcSheet .altContainer {
+    height: calc(100% - 20px);
+    grid-template-columns: 60% 40%;
+}
+
+.CYAltNpcSheet .altBold {
+    color: var(--altDark);
+    text-transform: uppercase;
+}
+
+.CYAltNpcSheet .altHp input[type="number"] {
+    width: 4em;
+}
+
+.CYAltNpcSheet .altPortrait {
+    height: calc(100% - 32px);
 }
 
 /*================================================ VEHICLE SHEET */
 
-.CYAltVehicleSheet>header {
-    border-bottom: 1px solid var(--altVehicleOrange) !important;
+.CYAltVehicleSheet {
+    --altHi: rgb(255, 144, 8);
+    --altBg: rgb(17, 17, 17);
+    --altTrans: rgba(255, 144, 8, 0.5);
+    --altBorderRadius: 0.25em;
 }
 
-.CYAltVehicleSheet a,
-.CYAltVehicleSheet p,
-.CYAltVehicleSheet span,
-.CYAltVehicleSheet legend,
-.CYAltVehicleSheet input,
-.CYAltVehicleSheet textarea,
-.CYAltVehicleSheet header,
-.CYAltVehicleSheet button,
-.CYAltVehicleSheet input[type="text"] {
-    color: var(--altVehicleOrange);
+.CYAltVehicleSheet .altContainer {
+    grid-template-columns: 40% 60%;
 }
 
-.CYAltVehicleSheet .altPortrait>img,
-.CYAltVehicleSheet input,
-.CYAltVehicleSheet fieldset {
-    border: 2px solid var(--altVehicleOrangeTrans)
+.CYAltVehicleSheet .altHp input[type="number"] {
+    width: 6em;
 }
 
-.CYAltVehicleSheet input[type="number"],
-.CYAltVehicleSheet input[type="checkbox"],
-.CYAltVehicleSheet .altButton {
-    background-color: var(--altVehicleOrange);
-    color: var(--altVehicleBg);
+.CYAltVehicleSheet .altSheetBody {
+    margin: 0 1% 1% 0;
 }
 
-.CYAltVehicleSheet .altButton:hover {
-    background: none;
-    color: var(--altVehicleOrange);
+.CYAltVehicleSheet .altInfo {
+    grid-template-rows: 25% 25% 25% 25%;
 }
 
-.CYAltVehicleSheet .tabs>[data-tab].active {
-    background-color: var(--altVehicleOrangeTrans);
+.CYAltVehicleSheet .altEditor,
+.CYAltVehicleSheet .editor {
+    height: 34em;
 }
 
-.CYAltVehicleSheet .altItemName>span {
-    background-color: var(--altVehicleOrange);
-    color: var(--altVehicleBg);
+.CYAltVehicleSheet #infoTab {
+    grid-template-rows: 94% 6%;
 }
 
-.CYAltVehicleSheet .altItemName>input[type="text"] {
-    border: 2px solid var(--altVehicleOrange);
+.CYAltVehicleSheet #invTab {
+    grid-template-rows: 60% 40%;
 }
 
-.CYAltVehicleSheet .item-equip {
-    color: var(--altVehicleOrangeTrans);
-}
-
-.CYAltVehicleSheet .item-equip.equipped {
-    color: var(--altVehicleOrange);
-}
-
-.CYAltVehicleSheet .altTier {
-    border: 1px solid var(--altVehicleOrange);
-}
-
-.CYAltVehicleSheet .altTierNA {
-    border-color: var(--altVehicleOrangeTrans);
-    color: var(--altVehicleOrangeTrans);
-}
-
-.altVehicleTextInv {
-    background-color: var(--altVehicleOrange);
-    color: var(--altVehicleBg) !important;
-    font-weight: 600;
+.CYAltVehicleSheet .combatGrid {
+    grid-template-columns: 35% 45% 18%;
 }
 
 /*=================================================== ITEM SHEET */
 
 .CYAltItemSheet {
-    border: 2px solid var(--altItemHi);
+    --altHi: #eeeeee;
+    --altBorderRadius: 0.25em;
+    --altBorderWidth: 1px;
+
+    border: var(--altBorderWidth) solid var(--altHi);
 }
 
-.CYAltItemSheet p,
-.CYAltItemSheet span,
-.CYAltItemSheet legend,
-.CYAltItemSheet input,
-.CYAltItemSheet textarea,
-.CYAltItemSheet header {
-    color: var(--altItemHi);
+.CYAltItemSheet fieldset {
+    border: var(--altBorderWidth) solid var(--altHi);
+    padding: calc(var(--altPadding) / 2);
 }
 
-.CYAltItemSheet input[type="text"],
-.CYAltItemSheet input[type="number"],
 .CYAltItemSheet textarea {
-    border: 1px dotted var(--altItemHi);
+    border: none;
+    padding: 0;
 }
 
-.CYAltItemSheet .altItemName>span {
-    background-color: var(--altItemHi) !important;
-    color: var(--altItemBg_app);
+.CYAltSheet hr {
+    border: var(--altBorderWidth) solid var(--altHi);
 }
 
-.CYAltItemSheet .altItemName input[type="text"] {
-    border: 2px solid var(--altItemHi);
+.CYAltItemSheet .altTrans {
+    background-color: var(--altTrans);
 }
 
-.CYAltItemSheet .altBgInv {
-    background-color: var(--altItemHi);
-    color: var(--altNpcBg);
+.CYAltItemSheet .altContainer {
+    grid-template-columns: 47% calc(51% + 3px);
 }
 
-.CYAltItem-app .altBg,
-.CYAltItem-cyberdeck .altBg {
-    background-color: var(--altItemBg-blue);
+.CYAltItemSheet .altData {
+    align-items: center;
+    height: 17em;
 }
 
-.CYAltItem-armor .altBg,
-.CYAltItem-equipment .altBg {
-    background-color: var(--altItemBg-green);
+.CYAltItem-app .altData {
+    grid-template-columns: 44% 52%;
 }
 
-.CYAltItem-class .altBg,
-.CYAltItem-feat .altBg {
-    background-color: var(--altItemBg-grey);
+.CYAltItem-armor .altData,
+.CYAltItem-cyberdeck .altData,
+.CYAltItem-equipment .altData,
+.CYAltItem-infestation .altData {
+    grid-template-columns: 47% 50%;
 }
 
-.CYAltItem-infestation .altBg,
-.CYAltItem-nanoPower .altBg {
-    background-color: var(--altItemBg-purple);
+.CYAltItem-class .altData {
+    grid-template-columns: 37% 61%;
 }
 
-.CYAltItem-weapon .altBg {
-    background-color: var(--altItemBg-red);
+.CYAltItem-class .altEditor {
+    height: 25em !important;
+}
+
+.CYAltItem-feat .altData {
+    grid-template-columns: 20% 77%;
+}
+
+.CYAltItem-nanoPower .altPortrait {
+    height: 15em;
+}
+
+.CYAltItem-nanoPower #itemPortrait {
+    height: 104%;
+}
+
+.CYAltItem-weapon .altData {
+    grid-template-columns: 47% 53%;
+}
+
+.CYAltItem-class .altData,
+.CYAltItem-weapon .altData {
+    height: unset;
+}
+
+.CYAltItem-weapon .altEditor {
+    height: 16em !important;
+}
+
+.CYAltItemSheet .altData input[type="number"],
+.CYAltItemSheet .altData input[type="text"] {
+    background-color: var(--altTrans);
+    border: none;
+    color: var(--altHi);
+    font-weight: bold;
+}
+
+.CYAltItemSheet .altData input[type="checkbox"] {
+    margin: 0;
+}
+
+.CYAltItemSheet .altData span {
+    word-wrap: break-word;
+}
+
+.CYAltItemSheet .altEditor {
+    background-color: var(--altTrans);
+    width: 100%;
+}
+
+.CYAltItemSheet .altEditor,
+.CYAltItemSheet .editor {
+    height: 11em;
+}
+
+.CYAltItemSheet #itemPortrait {
+    border: var(--altBorderWidth) solid var(--altHi);
+    border-radius: var(--altBorderRadius);
+}
+
+.CYAltItemSheet #itemName {
+    background-color: var(--altTrans);
+    font-weight: bold;
+}
+
+/*=================================================================
+                       FUNCITONAL CLASSES 
+=================================================================*/
+
+.altAlignC {
+    text-align: center;
+}
+
+.altAlignR {
+    text-align: right;
+}
+
+.altBold {
+    font-weight: bold;
+}
+
+.altCalcHeight {
+    height: calc(100% - 8px);
+}
+
+.altFullHeight {
+    height: 100%
+}
+
+.altFullWidth {
+    width: 100%;
+}
+
+.altPadding {
+    padding: var(--altPadding);
+}
+
+.altMarginBtm {
+    margin: 0 0 var(--altPadding) 0;
 }

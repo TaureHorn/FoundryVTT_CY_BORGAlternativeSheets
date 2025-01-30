@@ -1,48 +1,39 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="altRowFlex">
-        <div class="altColumns">
+    <div class="altRowFlex altFullHeight">
+        <div class="altContainer">
 
+            <!-- portrait -->
             <div class="altPortrait">
-                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
-                <div class="altFlex altItemName">
-                    <span id="itemType">APP</span>
-                    <input class="altBg" id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                <img class="altImage" id="itemPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altJoin">
+                    <span class="altInv altPadding">App</span>
+                    <input id="itemName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
             </div>
 
-            <div class="altData">
+            <!-- fields -->
+            <fieldset class="altGrid altData">
+                <span class="altBold">{{localize 'CY.Price'}}</span>
+                <input type="number" name="system.price" value="{{data.system.price}}" />
 
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.Price'}}: </span>
-                    <input class="altBg" type="number" name="system.price" value="{{data.system.price}}" />
-                </div>
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.Illegal'}}: </span>
-                    <input class="altBg" type="checkbox" name="system.illegal" {{checked data.system.price}} />
-                </div>
+                <span class="altBold">{{localize 'CY.Illegal'}}</span>
+                <input type="checkbox" name="system.illegal" {{checked data.system.price}} />
 
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.CarrySlots'}}: </span>
-                    <input class="altBg" type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
-                </div>
+                <span class="altBold">{{localize 'CY.CarrySlots'}}</span>
+                <input type="number" name="system.carrySlots" value="{{data.system.carrySlots}}" />
 
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.Quantity'}}: </span>
-                    <input class="altBg" type="number" name="system.quantity" value="{{data.system.quantity}}" />
-                </div>
+                <span class="altBold">{{localize 'CY.Quantity'}}</span>
+                <input type="number" name="system.quantity" value="{{data.system.quantity}}" />
 
-
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.Burned'}}: </span>
-                    <input class="altBg" type="checkbox" name="system.burned" {{checked data.system.price}} />
-                </div>
-
-            </div>
+                <span class="altBold">{{localize 'CY.Burned'}}</span>
+                <input type="checkbox" name="system.burned" {{checked data.system.price}} />
+            </fieldset>
         </div>
 
-        <fieldset class="altEditor altBg">
-            <legend class="altLabel altBgInv">DESCRIPTION</legend>
+        <!-- description -->
+        <fieldset class="altEditor">
+            <legend class="altInv">Description</legend>
             {{editor data.system.description target="system.description"
             button=true owner=owner editable=true engine="prosemirror"}}  
         </fieldset>

@@ -103,11 +103,6 @@ Hooks.once('ready', async () => {
             })
         }
 
-        async getData() {
-            console.log(await super.getData())
-            return await super.getData()
-        }
-
         activateListeners(html) {
             super.activateListeners(html)
 
@@ -144,12 +139,12 @@ Hooks.once('ready', async () => {
             // set window size for certain item types
             switch (this.item.type) {
                 case 'class':
-                    this.position.height = 765
-                    this.position.width = 765
+                    this.position.height = 725
+                    this.position.width = 725
                     break;
                 case 'weapon':
-                    this.position.height = 540
-                    this.position.width = 540
+                    this.position.height = 522
+                    this.position.width = 531
                     break;
                 default:
                     this.position.height = this.options.height
