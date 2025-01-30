@@ -13,7 +13,7 @@
 
                 <!-- description -->
                 <fieldset class="altEditor">
-                    <legend class="altInv">Description</legend>
+                    <legend class="altInv altSmallPadding">Description</legend>
                     {{editor data.system.description target="system.description"
                     button=true owner=owner editable=true engine="prosemirror"}}  
                 </fieldset>
@@ -23,7 +23,7 @@
             <!-- fields -->
             <div>
                 <fieldset class="altGrid altData altMarginBtm">
-                    <legend class="altInv">Stats</legend>
+                    <legend class="altInv altSmallPadding">Stats</legend>
                     
                     <span class="altBold">{{localize 'CY.WeaponType'}}</span>
                     <input type="text" name="system.weaponType" value="{{data.system.weaponType}}" />
@@ -57,7 +57,7 @@
                 </fieldset>
 
                 <fieldset class="altGrid altData">
-                    <legend class="altInv">Misc</legend>
+                    <legend class="altInv altSmallPadding">Misc</legend>
                     <span class="altBold">{{localize 'CY.Price'}}</span>
                     <input type="number" name="system.price" value="{{data.system.price}}" />
 

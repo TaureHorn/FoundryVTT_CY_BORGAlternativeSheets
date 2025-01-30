@@ -14,14 +14,14 @@
 
             <!-- fields -->
             <fieldset class="altTrans">
-                <legend class="altInv">{{localize 'CY.Triggered'}}</legend>
+                <legend class="altInv altSmallPadding">{{localize 'CY.Triggered'}}</legend>
                 <textarea class="altCalcHeight" name="system.triggered">{{data.system.triggered}}</textarea>
             </fieldset>
         </div>
 
         <!-- description -->
         <fieldset class="altEditor">
-            <legend class="altInv">Description</legend>
+            <legend class="altInv altSmallPadding">Description</legend>
             {{editor data.system.description target="system.description"
             button=true owner=owner editable=true engine="prosemirror"}}  
         </fieldset>

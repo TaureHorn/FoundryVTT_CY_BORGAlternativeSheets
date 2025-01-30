@@ -12,6 +12,11 @@
     src: url("/modules/cy-borg-alternative-sheets/assets/handjet_variable.ttf");
 }
 
+@font-face {
+    font-family: "Noto sans";
+    src: url("/modules/cy-borg-alternative-sheets/assets/noto-sans_variable.ttf");
+}
+
 /*================================================== BACKGROUNDS */
 
 .CYAltNpcSheet {
@@ -230,6 +235,7 @@
 .CYAltVehicleSheet input[type="text"]:hover,
 .CYAltVehicleSheet input[type="number"]:hover,
 .CYAltItemSheet #itemName:hover,
+.CYAltItemSheet textarea:hover,
 .CYAltItemSheet .altData input[type="text"]:hover,
 .CYAltItemSheet .altData input[type="number"]:hover { 
     background-color: var(--altHover);
@@ -245,7 +251,19 @@
     --altHover: rgb(243, 230, 0);
     --altNegative: rgb(255, 0, 85);
     --altTrans: rgba(49, 76, 118, 0.5);
-    --altBorderRadius: 1.5em
+    --altBorderRadius: 1.5em;
+}
+
+.CYAltNpcSheet,
+.CYAltNpcSheet input[type="text"],
+.CYAltNpcSheet input[type="number"],
+.CYAltNpcSheet button,
+.CYAltNpcSheet textarea {
+    font-family: 'Noto sans', monospace;
+}
+
+.CYAltNpcSheet textarea {
+    font-size: 1em;
 }
 
 .CYAltNpcSheet>header {
@@ -314,6 +332,12 @@
     --altBorderRadius: 0.25em;
 }
 
+.CYAltVehicleSheet,
+.CYAltVehicleSheet button {
+    font-family: "UAV OSD Sans Mono", monospace;
+    font-size: 0.75rem;
+}
+
 .CYAltVehicleSheet .altContainer {
     grid-template-columns: 40% 60%;
 }
@@ -367,11 +391,13 @@
     --altBorderWidth: 1px;
 
     border: var(--altBorderWidth) solid var(--altHi);
+    font-family: "QuanPixel 8px"
+
 }
 
 .CYAltItemSheet fieldset {
     border: var(--altBorderWidth) solid var(--altHi);
-    padding: calc(var(--altPadding) / 2);
+    padding: var(--altPadding);
 }
 
 .CYAltItemSheet textarea {
@@ -408,7 +434,7 @@
 }
 
 .CYAltItem-class .altEditor {
-    height: 25em !important;
+    height: 312px !important;
 }
 
 .CYAltItem-feat .altData {
@@ -416,7 +442,7 @@
 }
 
 .CYAltItem-nanoPower .altPortrait {
-    height: 15em;
+    height: 17em;
 }
 
 .CYAltItem-nanoPower #itemPortrait {
@@ -424,7 +450,7 @@
 }
 
 .CYAltItem-weapon .altData {
-    grid-template-columns: 47% 53%;
+    grid-template-columns: 45% 53%;
 }
 
 .CYAltItem-class .altData,
@@ -433,7 +459,7 @@
 }
 
 .CYAltItem-weapon .altEditor {
-    height: 16em !important;
+    height: 17em !important;
 }
 
 .CYAltItemSheet .altData input[type="number"],
