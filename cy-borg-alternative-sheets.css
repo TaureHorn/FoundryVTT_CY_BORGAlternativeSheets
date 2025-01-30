@@ -1,7 +1,9 @@
 :root {
+    --altBorderWidth: 2px;
     --altGap: 5px;
     --altPadding: 5px;
-    --altBorderWidth: 2px;
+    --altRed: rgb(255, 0, 85);
+    --altSmallPadding: 2px;
 }
 
 @font-face {
@@ -23,6 +25,8 @@
 .CYAltItem-app,
 .CYAltItem-cyberdeck {
     --altBg: rgb(42, 109, 130);
+    --altHover: rgb(40, 221, 221);
+    --altNegative: var(--altRed);
     --altTrans: rgba(42, 109, 130, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/tech_background.webp');
 }
@@ -30,6 +34,8 @@
 .CYAltItem-armor,
 .CYAltItem-equipment {
     --altBg: rgb(35, 118, 42);
+    --altHover: rgb(24, 240, 129);
+    --altNegative: var(--altRed);
     --altTrans: rgba(35, 118, 42, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/equipment_background.webp');
 }
@@ -37,6 +43,8 @@
 .CYAltItem-class,
 .CYAltItem-feat {
     --altBg: rgb(66, 73, 73);
+    --altHover: rgb(160, 160, 160);
+    --altNegative: var(--altRed);
     --altTrans: rgba(66, 73, 73, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/misc_background.webp');
 }
@@ -44,12 +52,16 @@
 .CYAltItem-infestation,
 .CYAltItem-nanoPower {
     --altBg: rgb(104, 11, 123);
+    --altHover: rgb(255, 0, 187);
+    --altNegative: var(--altRed);
     --altTrans: rgba(104, 11, 123, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/nano_background.webp');
 }
 
 .CYAltItem-weapon {
     --altBg: rgb(140, 24, 30);
+    --altHover: var(--altRed);
+    --altNegative: rgb(51, 51, 51);
     --altTrans: rgba(140, 24, 30, 0.5);
     background-image: url('/modules/cy-borg-alternative-sheets/assets/weapon_background.webp');
 }
@@ -117,9 +129,8 @@
     color: var(--altBg);
 }
 
-.altButton:hover {
-    background-color: var(--altBg);
-    color: var(--altHi);
+.tabs>[data-tab].active:hover {
+    background-color: var(--altNegative);
 }
 
 .altContainer,
@@ -186,7 +197,7 @@
 }
 
 .altJoin span {
-    border: calc(var(--altBorderWidth) / 2) solid var(--altHi);
+    padding: 6px;
 }
 
 .altRowFlex {
@@ -215,12 +226,24 @@
     color: var(--altHi);
 }
 
+.CYAltVehicleSheet .altButton:hover,
+.CYAltVehicleSheet input[type="text"]:hover,
+.CYAltVehicleSheet input[type="number"]:hover,
+.CYAltItemSheet #itemName:hover,
+.CYAltItemSheet .altData input[type="text"]:hover,
+.CYAltItemSheet .altData input[type="number"]:hover { 
+    background-color: var(--altHover);
+    color: var(--altBg);
+}
+
 /*==================================================== NPC SHEET */
 
 .CYAltNpcSheet {
     --altBg: #eeeeee;
     --altDark: rgb(72, 72, 72);
     --altHi: rgb(49, 76, 118);
+    --altHover: rgb(243, 230, 0);
+    --altNegative: rgb(255, 0, 85);
     --altTrans: rgba(49, 76, 118, 0.5);
     --altBorderRadius: 1.5em
 }
@@ -240,6 +263,13 @@
 .CYAltNpcSheet textarea,
 .CYAltNpcSheet .editor {
     border: var(--altBorderWidth) dotted var(--altHi);
+}
+
+.CYAltNpcSheet .altButton:hover,
+.CYAltNpcSheet input[type="text"]:hover,
+.CYAltNpcSheet input[type="number"]:hover {
+    background-color: var(--altHover);
+    color: var(--altHi);
 }
 
 .CYAltNpcSheet #charName {
@@ -276,8 +306,10 @@
 /*================================================ VEHICLE SHEET */
 
 .CYAltVehicleSheet {
-    --altHi: rgb(255, 144, 8);
     --altBg: rgb(17, 17, 17);
+    --altHi: rgb(253, 147, 45);
+    --altHover: rgb(28, 213, 119);
+    --altNegative: rgb(255, 0, 80);
     --altTrans: rgba(255, 144, 8, 0.5);
     --altBorderRadius: 0.25em;
 }
@@ -300,7 +332,7 @@
 
 .CYAltVehicleSheet .altEditor,
 .CYAltVehicleSheet .editor {
-    height: 34em;
+    height: 39em;
 }
 
 .CYAltVehicleSheet #infoTab {
@@ -313,6 +345,18 @@
 
 .CYAltVehicleSheet .combatGrid {
     grid-template-columns: 35% 45% 18%;
+}
+
+.CYAltVehicleSheet .item a:hover {
+    color: var(--altHover);
+}
+
+.CYAltVehicleSheet #addItem:hover {
+    background-color: var(--altHover);
+}
+
+.CYAltVehicleSheet a.altTierNA:hover {
+    color: var(--altNegative);
 }
 
 /*=================================================== ITEM SHEET */
@@ -333,10 +377,6 @@
 .CYAltItemSheet textarea {
     border: none;
     padding: 0;
-}
-
-.CYAltSheet hr {
-    border: var(--altBorderWidth) solid var(--altHi);
 }
 
 .CYAltItemSheet .altTrans {
@@ -462,6 +502,10 @@
 
 .altPadding {
     padding: var(--altPadding);
+}
+
+.altSmallPadding {
+    padding: var(--altSmallPadding);
 }
 
 .altMarginBtm {

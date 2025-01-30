@@ -3,13 +3,13 @@
 
         <!-- portrait and sheet controls go here -->
         <fieldset class="altPortrait">
-            <legend class="altInv">Vehicle</legend>
+            <legend class="altInv altSmallPadding">Vehicle</legend>
 
             <img class="altImage" src="{{actor.img}}" data-edit="img" data-zoom="{{actor.img}}" data-id="{{actor.id}}"title="{{actor.name}}"/>          
 
             <div class="altRowFlex">
                 <div class="altJoin altFullWidth">
-                    <span class="altInv altPadding">Name</span>
+                    <span class="altInv">Name</span>
                     <input type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
 
@@ -42,12 +42,12 @@
             <div class="tab data-tab altFullHeight" data-group="primary" data-tab="info">
                 <div id="infoTab" class="altGrid altFullHeight">
                     <fieldset class="altEditor">
-                        <legend class="altInv">Info</legend>
+                        <legend class="altInv altSmallPadding">Info</legend>
                         {{editor data.system.description target="system.description"
                         button=true owner=owner editable=true engine="prosemirror"}}        
                     </fieldset>
                     <div class="altJoin">
-                        <span class="altInv altPadding">{{localize "CY.Owner"}}</span>
+                        <span class="altInv">{{localize "CY.Owner"}}</span>
                         <input type="text" name="system.owner" value="{{data.system.owner.name}}" />
                     </div>
                 </div>
@@ -57,12 +57,12 @@
             <div class="tab data-tab altFullHeight" data-group="primary" data-tab="inventory">
                 <div id="invTab" class="altGrid altFullHeight">
                     <fieldset>
-                        <legend class="altInv">Inventory</legend>
+                        <legend class="altInv altSmallPadding altMarginBtm">Inventory</legend>
                         {{> modules/cy-borg-alternative-sheets/templates/actors/equipment.html}}
                     </fieldset>
 
                     <fieldset>
-                        <legend class="altInv">Combat</legend>
+                        <legend class="altInv altSmallPadding">Combat</legend>
                         {{> modules/cy-borg-alternative-sheets/templates/actors/combat.html}}
                     </fieldset>
                 </div>
