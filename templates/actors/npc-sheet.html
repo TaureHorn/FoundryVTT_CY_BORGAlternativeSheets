@@ -1,84 +1,82 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="altColumns">
+    <div class="altContainer altFullHeight">
 
-        <div class="altPortrait">
-
-            <img id="charPortrait" src="{{actor.img}}" data-edit="img" data-zoom="{{actor.img}}" data-id="{{actor.id}}"title="{{actor.name}}"/>          
-
-            <div>
-                <span class="altLabel">ACTIONS</span>
-                <div class="altFlex">
-                    <button type="button" class="altButton reaction-button">{{ localize "CY.Reaction" }}</button>
-                    <button type="button" class="altButton morale-button">{{ localize "CY.Morale" }}</button>
-                </div>
-
-                <span class="altLabel">VIEW</span>
-                <div class="altFlex">
-                    <nav class="altSheetTabs tabs altFlex" data-group="primary">
-                        <button type="button" class="altButton" data-tab="data">{{ localize "CY.Data" }}</button>
-                        <button type="button" class="altButton" data-tab="description">{{ localize "CY.Description" }}</button>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="altInfo">
+        <section class="altFullHeight">
 
             <input id="charName" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
 
+            <!-- sheet tabs go here -->
             <div class="altSheetBody">
                 
+                <!-- data tab -->
                 <div class="tab data-tab" data-group="primary" data-tab="data">
-                    
-                    <fieldset>
-                        <legend class="altLabel">STATS</legend>
-                        <div id="numberStats" class="altFlex">
 
-                            <div id="HP" class="altStats">
-                                <p class="altLabelMinor">{{localize "CY.HitPoints"}}:</p>
+                    <span class="altBold" >Stats</span>
+                    <div class="altFlex">
+                        <div class="altFlex altHp">
+                            <p>{{localize "CY.HitPoints"}}:</p>
+                            <div class="altHpNum" >
                                 <input type="number" name="system.hitPoints.value" value="{{data.system.hitPoints.value}}" />
-                                <p class="altLabelMinor">/</p>
+                                <p class="altHpSlash"><b>/</b></p>
                                 <input type="number" name="system.hitPoints.max" value="{{data.system.hitPoints.max}}" />
                             </div>
-
-                            <div id="morale" class="altStats">
-                                <p class="altLabelMinor">{{localize "CY.Morale"}}:</p>
-                                <input type="number" name="system.morale" value="{{data.system.morale}}" />
-                            </div>
-
+                        </div>
+                        
+                        <div class="altFlex altHp">
+                            <p>{{localize "CY.Morale"}}:</p>
+                            <input type="number" name="system.morale" value="{{data.system.morale}}" />
                         </div>
 
-                        <div id="armour" class="altStats">
-                            <p class="altLabelMinor">{{localize "CY.Armor"}}:</p>
-                            <input type="text" name="system.armor" value="{{data.system.armor}}" />
-                        </div>
+                    </div>
 
-                    </fieldset>
+                    <div class="altFlex">
+                        <p>{{localize "CY.Armor"}}:</p>
+                        <input type="text" name="system.armor" value="{{data.system.armor}}" />
+                    </div>
 
-                    <fieldset>
-                        <legend class="altLabel">{{localize "CY.Attack"}}</legend>
+                    <div>
+                        <span class="altBold">{{localize "CY.Attack"}}</span>
                         <textarea name="system.attack" rows="3">{{data.system.attack}}</textarea>
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="altLabel">{{localize "CY.Special"}}</legend>
-                        <textarea name="system.special" rows="4">{{data.system.special}}</textarea>
-                    </fieldset>
+                    <div>
+                        <span class="altBold">{{localize "CY.Special"}}</span>
+                        <textarea name="system.special" rows="6">{{data.system.special}}</textarea>
+                    </div>
 
                 </div>
 
-                <fieldset class="tab description-tab altEditor" data-group="primary" data-tab="description">
-                    <legend class="altLabel">DESCRIPTION</legend>
+                <!-- description tab -->
+                <div class="tab data-tab" data-group="primary" data-tab="description">
+                    <p class="altBold">Description</p>
                     {{editor data.system.description target="system.description"
                     button=true owner=owner editable=true engine="prosemirror"}}  
-                </fieldset>
+                </div>
+
             </div>
 
-        </div>
+
+        </section>
+
+        <!-- portrait and sheet controls go here -->
+        <section class="altPortrait">
+
+            <img class="altImage" src="{{actor.img}}" data-edit="img" data-zoom="{{actor.img}}" data-id="{{actor.id}}" title="{{actor.name}}" />
+
+            <div class="altRowFlex">
+                <div class="altFlex altFullWidth">
+                    <button type="button" class="altButton altInv reaction-button">{{ localize "CY.Reaction" }}</button>
+                    <button type="button" class="altButton altInv morale-button">{{ localize "CY.Morale" }}</button>
+                </div>
+
+                <nav class="altSheetTabs tabs altFlex altFullWidth" data-group="primary">
+                    <button type="button" class="altButton altInv" data-tab="data">{{ localize "CY.Data" }}</button>
+                    <button type="button" class="altButton altInv" data-tab="description">{{ localize "CY.Description"}}</button>
+                </nav>
+            </div>
+
+        </section>
 
     </div>
-    
 </form>
-

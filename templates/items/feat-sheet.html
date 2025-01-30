@@ -1,37 +1,33 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="altRowFlex">
-        <div class="altColumns">
+    <div class="altRowFlex altFullHeight">
+        <div class="altContainer">
 
+            <!-- portrait -->
             <div class="altPortrait">
-                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
-                <div class="altFlex altItemName">
-                    <span id="itemType">FEAT</span>
-                    <input class="altBg" id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                <img class="altImage" id="itemPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altJoin">
+                    <span class="altInv altPadding">App</span>
+                    <input id="itemName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
             </div>
 
-            <div class="altData">
+            <!-- fields -->
+            <fieldset class="altGrid altData">
+                <span class="altBold">{{localize 'CY.RollLabel'}}</span>
+                <input type="text" name="system.rollBold" value="{{data.system.rollLabel}}" />
 
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.RollLabel'}}: </span>
-                    <input class="altBg" type="text" name="system.rollLabel" value="{{data.system.rollLabel}} " />
-                </div>
-
-                <div class="altFlex">
-                    <span class="altLabel">{{localize 'CY.RollMacro'}}: </span>
-                    <input class="altBg" type="text" name="system.rollMacro" value="{{data.system.rollMacro}} " />
-                </div>
-
-            </div>
+                <span class="altBold">{{localize 'CY.RollMacro'}}</span>
+                <input type="text" name="system.rollMacro" value="{{data.system.rollMacro}}" />
+            </fieldset>
         </div>
 
-        <fieldset class="altEditor altBg">
-            <legend class="altLabel altBgInv">DESCRIPTION</legend>
+        <!-- description -->
+        <fieldset class="altEditor">
+            <legend class="altInv">Description</legend>
             {{editor data.system.description target="system.description"
             button=true owner=owner editable=true engine="prosemirror"}}  
         </fieldset>
 
     </div>
 </form>
-

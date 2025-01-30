@@ -1,104 +1,91 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="altRowFlex">
-        <div class="altColumns">
+    <div class="altRowFlex altFullHeight">
+        <div class="altContainer">
 
+            <!-- portrait -->
             <div class="altPortrait">
-                <img id="charPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
-                <div class="altFlex altItemName">
-                    <span id="itemType">CLASS</span>
-                    <input class="altBg" id="charName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
+                <img class="altImage" id="itemPortrait" src="{{item.img}}" data-edit="img" data-zoom="{{item.img}}" data-id="{{item.id}} "title="{{item.name}}"/>          
+                <div class="altJoin altMarginBtm">
+                    <span class="altInv altPadding">App</span>
+                    <input id="itemName" type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'CY.Name' }}" spellcheck="false"/>          
                 </div>
 
-                <fieldset class="altEditor altBg">
-                    <legend class="altLabel altBgInv">DESCRIPTION</legend>
+                <!-- description -->
+                <fieldset class="altEditor">
+                    <legend class="altInv">Description</legend>
                     {{editor data.system.description target="system.description"
                     button=true owner=owner editable=true engine="prosemirror"}}  
                 </fieldset>
 
             </div>
 
-            <div class="altData">
+            <!-- fields -->
+            <div>
 
-                <fieldset>
-                    <legend class="altLabel altBgInv">ABILITIES</legend>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Strength'}}: </span>
-                        <input class="altBg" type="text" name="system.strength" value="{{data.system.strength}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Agility'}}: </span>
-                        <input class="altBg" type="text" name="system.agility" value="{{data.system.agility}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Presence'}}: </span>
-                        <input class="altBg" type="text" name="system.presence" value="{{data.system.presence}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Toughness'}}: </span>
-                        <input class="altBg" type="text" name="system.toughness" value="{{data.system.toughness}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Knowledge'}}: </span>
-                        <input class="altBg" type="text" name="system.knowledge" value="{{data.system.knowledge}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.HitPoints'}}: </span>
-                        <input class="altBg" type="text" name="system.hitPoints" value="{{data.system.hitPoints}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Glitches'}}: </span>
-                        <input class="altBg" type="text" name="system.glitches" value="{{data.system.glitches}}" spellcheck="false"/>
-                    </div>
+                <fieldset class="altGrid altData altMarginBtm">
+                    <legend class="altInv">Abilities</legend>
+                    <span class="altBold">{{ localize 'CY.Strength'}}</span>
+                    <input type="text" name="system.strength" value="{{data.system.strength}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Agility'}}</span>
+                    <input type="text" name="system.agility" value="{{data.system.agility}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Presence'}}</span>
+                    <input type="text" name="system.presence" value="{{data.system.presence}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Toughness'}}</span>
+                    <input type="text" name="system.toughness" value="{{data.system.toughness}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Knowledge'}}</span>
+                    <input type="text" name="system.knowledge" value="{{data.system.knowledge}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.HitPoints'}}</span>
+                    <input type="text" name="system.hitPoints" value="{{data.system.hitPoints}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Glitches'}}</span>
+                    <input type="text" name="system.glitches" value="{{data.system.glitches}}" spellcheck="false"/>
+
                 </fieldset>
 
-                <fieldset>
-                    <legend class="altLabel altBgInv">STUFF</legend>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Credits'}}: </span>
-                        <input class="altBg" type="text" name="system.credits" value="{{data.system.credits}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Debt'}}: </span>
-                        <input class="altBg" type="text" name="system.debt" value="{{data.system.debt}}" spellcheck="false"/>
-                    </div>
+                <fieldset class="altGrid altData">
+                    <legend class="altInv">Stuff</legend>
 
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.WeaponTable'}}: </span>
-                        <input class="altBg" type="text" name="system.weaponTable" value="{{data.system.weaponTable}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.ArmorTable'}}: </span>
-                        <input class="altBg" type="text" name="system.armorTable" value="{{data.system.armorTable}}" spellcheck="false"/>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Rolls'}}: </span>
-                        <textarea name="system.rolls" rows="4">{{data.system.rolls}}</textarea>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.Items'}}: </span>
-                        <textarea name="system.items" rows="4">{{data.system.items}}</textarea>
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.OnlyApps'}}: </span>
-                        <input class="altBg" type="checkbox" name="system.onlyApps" {{checked data.system.onlyApps}} />
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.OnlyCybertech'}}: </span>
-                        <input class="altBg" type="checkbox" name="system.onlyCybertech" {{checked data.system.onlyCybertech}} />
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.OnlyNano'}}: </span>
-                        <input class="altBg" type="checkbox" name="system.onlyNano" {{checked data.system.onlyNano}} />
-                    </div>
-                    <div class="altFlex">
-                        <span class="altLabel">{{ localize 'CY.ActorCreateMacro'}}: </span>
-                        <textarea name="system.actorCreateMacro" rows="4">{{data.system.actorCreateMacro}}</textarea> 
-                    </div>
-                </fieldse>
+                    <span class="altBold">{{ localize 'CY.Credits'}}</span>
+                    <input type="text" name="system.credits" value="{{data.system.credits}}" spellcheck="false"/>
+                    
+                    <span class="altBold">{{ localize 'CY.Debt'}}</span>
+                    <input type="text" name="system.debt" value="{{data.system.debt}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.WeaponTable'}}</span>
+                    <input type="text" name="system.weaponTable" value="{{data.system.weaponTable}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.ArmorTable'}}</span>
+                    <input type="text" name="system.armorTable" value="{{data.system.armorTable}}" spellcheck="false"/>
+
+                    <span class="altBold">{{ localize 'CY.Rolls'}}</span>
+                    <textarea name="system.rolls" rows="4">{{data.system.rolls}}</textarea>
+
+                    <span class="altBold">{{ localize 'CY.Items'}}</span>
+                    <textarea name="system.items" rows="4">{{data.system.items}}</textarea>
+
+                    <span class="altBold">{{ localize 'CY.OnlyApps'}}</span>
+                    <input type="checkbox" name="system.onlyApps" {{checked data.system.onlyApps}} />
+
+                    <span class="altBold">{{ localize 'CY.OnlyCybertech'}}</span>
+                    <input type="checkbox" name="system.onlyCybertech" {{checked data.system.onlyCybertech}} />
+
+                    <span class="altBold">{{ localize 'CY.OnlyNano'}}</span>
+                    <input type="checkbox" name="system.onlyNano" {{checked data.system.onlyNano}} />
+
+                    <span class="altBold">{{ localize 'CY.ActorCreateMacro'}}</span>
+                    <textarea name="system.actorCreateMacro" rows="4">{{data.system.actorCreateMacro}}</textarea> 
+                        
+                </fieldset>
 
             </div>
         </div>
+
     </div>
 </form>
 
