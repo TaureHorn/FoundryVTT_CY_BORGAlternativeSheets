@@ -184,8 +184,8 @@
 .altImage {
     border: var(--altBorderWidth) solid var(--altBg);
     cursor: pointer;
-    height: auto;
-    width: 100%;
+    object-fit: cover;
+    object-position: 50%;
 }
 
 .altInv {
@@ -260,6 +260,7 @@
 .CYAltNpcSheet button,
 .CYAltNpcSheet textarea {
     font-family: 'Noto sans', monospace;
+    font-size: 9pt;
 }
 
 .CYAltNpcSheet textarea {
@@ -288,6 +289,11 @@
 .CYAltNpcSheet input[type="number"]:hover {
     background-color: var(--altHover);
     color: var(--altHi);
+}
+
+.CYAltNpcSheet .altImage {
+    height: 234px;
+    width: 234px;
 }
 
 .CYAltNpcSheet #charName {
@@ -335,11 +341,16 @@
 .CYAltVehicleSheet,
 .CYAltVehicleSheet button {
     font-family: "UAV OSD Sans Mono", monospace;
-    font-size: 0.75rem;
+    font-size: 8pt;
 }
 
 .CYAltVehicleSheet .altContainer {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 28em 40.5em;
+}
+
+.CYAltVehicleSheet .altImage {
+    height: 280px;
+    width: 280px;
 }
 
 .CYAltVehicleSheet .altHp input[type="number"] {
@@ -348,10 +359,6 @@
 
 .CYAltVehicleSheet .altSheetBody {
     margin: 0 1% 1% 0;
-}
-
-.CYAltVehicleSheet .altInfo {
-    grid-template-rows: 25% 25% 25% 25%;
 }
 
 .CYAltVehicleSheet .altEditor,
@@ -391,8 +398,8 @@
     --altBorderWidth: 1px;
 
     border: var(--altBorderWidth) solid var(--altHi);
-    font-family: "QuanPixel 8px"
-
+    font-family: "QuanPixel 8px";
+    font-size: 9pt;
 }
 
 .CYAltItemSheet fieldset {
@@ -405,6 +412,26 @@
     padding: 0;
 }
 
+.CYAltItem-app .altImage,
+.CYAltItem-armor.altImage,
+.CYAltItem-equipment.altImage,
+.CYAltItem-infestation.altImage,
+.CYAltItem-feat.altImage,
+.CYAltItem-nanoPower.altImage {
+    height: 180px;
+    width: 180px;
+}
+
+.CYAltItem-class .altImage {
+    height: 342px;
+    width: 342px;
+}
+
+.CYAltItem-weapon .altImage {
+    height: 245px;
+    width: 245px;
+}
+
 .CYAltItemSheet .altTrans {
     background-color: var(--altTrans);
 }
@@ -415,7 +442,7 @@
 
 .CYAltItemSheet .altData {
     align-items: center;
-    height: 17em;
+    height: 17.5em;
 }
 
 .CYAltItem-app .altData {
