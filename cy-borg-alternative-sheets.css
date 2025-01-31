@@ -349,6 +349,8 @@
 }
 
 .CYAltVehicleSheet .altImage {
+    border: none !important;
+    filter: sepia(100%) hue-rotate(-10deg) saturate(5) brightness(1.2);
     height: 280px;
     width: 280px;
 }
