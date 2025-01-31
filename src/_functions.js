@@ -25,7 +25,7 @@ export async function changeArmorTier(event, actor) {
     const item = actor.items.get($(event.currentTarget).parents('.item').data('itemId'))
     if (newTier > item.system.tier.max) {
         ui.notifications.warn('That is above the maximum armor tier for this item')
-        newTier = item.system.tier.max
+        newTier = item.system.tier.value
     }
     await item.update({ ['system.tier.value']: newTier })
 }
