@@ -18,7 +18,7 @@ export function getItemSheet(parent) {
             return `modules/cy-borg-alternative-sheets/templates/items/${this.item.type}-sheet.html`
         }
 
-        setOpts() {
+        getData() {
             // add item type to class list
             const itemClass = `CYAltItem-${this.item.type}`
             if (!this.options.classes.includes(itemClass)) {
@@ -40,6 +40,8 @@ export function getItemSheet(parent) {
                     this.position.width = this.options.width
             }
 
+            return super.getData()
+
         }
 
         activateListeners(html) {
@@ -49,12 +51,6 @@ export function getItemSheet(parent) {
             html.on('contextmenu', '[data-zoom]', () => {
                 zoomSheetPortrait(this.object)
             })
-        }
-
-
-        render(...args) {
-            this.setOpts()
-            return super.render(...args)
         }
 
     }
